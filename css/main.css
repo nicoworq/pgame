@@ -1,0 +1,374 @@
+
+
+body{
+    background: #FEDA00;
+}
+
+#game-container{
+    height: 100vh;
+    width: 100%;
+    background: url(../img/fondo_01.svg)no-repeat;
+    background-size: cover;
+    background-position: 50%;
+}
+
+
+/* -----------
+* BACKGROUND INTRO
+* ----------- */
+
+.reno-bg{
+    position: absolute;
+}
+img{max-width: 100%}
+
+#reno-der{
+    right: 0;
+    width: 170px;
+    top: 10vh;
+}
+#reno-izq{
+    left: 0;
+    width: 100px;
+    top: 15vh;
+}
+
+#content-container{
+    display: none;
+    text-align: center;
+    background-image: url(../img/circulo.svg);
+    background-repeat: no-repeat;
+    background-position: 57% 50%;
+    background-size: 800px;
+    height: 100vh;
+    font-family: Lato;
+}
+
+@media(min-width:1580px){
+    #content-container{background-position: 57% 50%;}
+}
+
+@media(min-width:1700px){
+    #content-container{background-position: 55% 50%;}
+}
+@media(min-width:1900px){
+    #content-container{background-position: 54% 50%;}
+}
+
+#reno-middle-der{
+    width: 82px;
+    right: -8px;
+    transform: rotate(270deg);
+    top: 59%;
+}
+
+#papa-noel-intro{
+    position: absolute;
+    top: 13%;
+    left: -1%;
+    width: 310px;
+}
+
+#papa-noel-intro-rastrillo{
+    width: 133px;
+    position: absolute;
+    top: 85%;
+    left: -52px;
+}
+
+#reno-bottom{
+    width: 82px;
+    bottom: 0;
+    left: 70%;
+}
+#reno-top{
+    width: 82px;
+    top: 0;
+    left: 30%;
+    transform: rotate(180deg);
+}
+
+.arbol-bg{position: absolute;}
+
+#arbol-chico{width: 125px;right: 15%;top: 50%;}
+#arbol-grande{
+    width: 170px;
+    right: 2%;
+    top: 11%;
+}
+
+
+/* -----------
+ * INTRO SCREEN
+ * ----------- */
+
+
+#intro{position: absolute;width: 100%;top: 50%;margin-top: -270px;}
+
+
+#intro .container{
+    position: relative;
+    height: 620px;
+}
+#intro h1{
+    font-weight: bold;
+    font-size: 22px;
+    margin: 56px 0;
+}
+
+#logo-desafio{
+    margin: 46px 0;
+}
+
+
+
+.logo-pascal{
+    display: block;
+}
+
+
+#intro-content1{}
+
+
+#intro-content2{display: none;}
+#intro-content2 h2{
+    color: #9B64A3;
+    font-size: 36px;
+    font-weight: bold;
+}
+#pasos{padding: 0;margin: 0;font-size: 24px;list-style: none;}
+
+#intro-content2 h4{
+    color: #5CA26C;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+#recuerda{
+    color: #211915;
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+/* -----------
+ * MEMOTEST
+ * ----------- */
+
+
+#memo-container{display: block; font-family: 'Passion One', cursive;/* margin-top: 40px; */}
+
+#memo-container .container{position: relative;}
+
+
+#memo-container .logo-pascal{margin-top: 73px;}
+#time{
+    color: white;
+    position: relative;
+    text-align: center;
+    margin-top: 116px;
+}
+
+#time span{font-size: 81px;line-height: 65px;text-shadow: 7px -3px 0px rgba(57,55,69,0.2);}
+
+#time p{margin: 0;font-size: 20px;}
+#time-bg{
+    background: #856097;
+    position: absolute;
+    width: 405px;
+    height: 140px;
+    border-radius: 85px;
+    transform: rotate(-42deg);
+    top: 47px;
+    left: -221px;
+    z-index: -1;
+    box-shadow: 3px 5px 0px rgba(57,55,69,0.2);
+}
+#time-bg span{width: 144px;height: 48px;background: #EDC600;border-radius: 50px;display: block;margin-top: 109px;margin-left: 128px;box-shadow: 3px 5px 0px rgba(57,55,69,0.2);}
+
+
+
+#score{
+    text-align: center;
+    color: white;
+    position: relative;
+    font-size: 20px;
+    margin-top: 250px;
+    min-height: 93px;
+}
+
+#score span{
+    font-size: 81px;
+    line-height: 65px;
+    text-shadow: 7px -3px 0px rgba(57,55,69,0.2);
+}
+#score p{margin: 0;}
+
+#score-bg{
+    background: #5CA26C;
+    position: absolute;
+    width: 500px;
+    height: 170px;
+    border-radius: 85px;
+    transform: rotate(-42deg);
+    top: -156px;
+    left: -44px;
+    z-index: -1;
+    box-shadow: 3px 5px 0px rgba(57,55,69,0.2);
+}
+#score-bg span{
+    width: 160px;
+    height: 57px;
+    border-radius: 50px;
+    display: block;
+    margin-top: 139px;
+    margin-left: 193px;
+    box-shadow: 3px 5px 0px rgba(57,55,69,0.2);
+    background: #856097;
+}
+#tries{
+    position: relative;
+    font-size: 32px;
+    color: white;
+    text-align: center;
+    margin-top: 38px;
+    min-height: 45px;
+}
+#tries img{width: 32px; height: 32px;}
+
+#tries-bg{
+    background: #EB3D40;
+    position: absolute;
+    width: 167px;
+    height: 82px;
+    border-radius: 85px;
+    transform: rotate(-42deg);
+    top: -49px;
+    left: 23px;
+    z-index: -2;
+    box-shadow: 3px 5px 0px rgba(57,55,69,0.2);
+}
+#matches{text-align: left; font-size: 52px;color: #F4D900;line-height: 52px;margin-top: 59px;padding-left: 16px;}
+
+#matches-bg{background: #856097;display: inline-block;border-radius: 13px;height: 50px;padding-left: 6px;padding-right: 4px;box-shadow: 3px -3px 0px rgba(57,55,69,0.2);}
+
+#matches span{
+    margin-right: -9px;
+}
+
+#toasty{
+    position: relative;
+    margin-top: -14px;
+    z-index: 1;
+    height: 150px;
+}
+#toasty-bg{
+    background: #EDC600;
+    position: absolute;
+    width: 230px;
+    height: 82px;
+    border-radius: 85px;
+    transform: rotate(-42deg);
+    top: 73px;
+    left: 17px;
+    z-index: 1;
+}
+
+#toasty-fg{
+    width: 200px;
+    height: 28px;
+    background: #FEDA00;
+    position: absolute;
+    top: 171px;
+    transform: rotate(-42deg);
+    z-index: 2;
+    left: 35px;
+}
+
+#papa-noel-8bit{
+    position: absolute;
+    width: 150px;
+    top: 4px;
+    z-index: 2;
+    right: -200px;
+    opacity: 0;
+}
+
+
+/* -----------
+ * MEMO CARDS
+ * ----------- */
+
+#cards-container{
+    margin-top: 57px;
+}
+
+.memo-row{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.card{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    cursor: pointer;
+    background: url(../img/gameImg/default.png) no-repeat white 50%;
+}
+.card img{}
+.memo-row .card:last-child{}
+
+
+/* -----------
+ * MAIN UI
+ * ----------- */
+
+.btn-primary{font-family: Open Sans;background: #5CA26C;border: 
+                 none;color: white;font-size: 28px;font-weight: 300;padding: 15px 44px;border-radius: 50px;border-bottom: 3px solid #42723B;}
+
+
+
+
+.show-santa{
+	-webkit-animation:showToastyGuy 1s;
+	   -moz-animation:showToastyGuy 1s;
+	     -o-animation:showToastyGuy 1s;
+	        animation:showToastyGuy 1s;
+}
+
+@-webkit-keyframes showToastyGuy 
+{
+	0% {right: -200px;}
+	40% {right: 0;opacity: 1}
+	60% {right: 0;}
+        90% {opacity: 0}
+	100% {right: -200px;}
+}
+
+@-moz-keyframes showToastyGuy 
+{
+	0% {right: -200px;}
+	40% {right: 0;opacity: 1}
+	60% {right: 0;}
+        90% {opacity: 0}
+	100% {right: -200px;}
+}
+
+@-o-keyframes showToastyGuy 
+{
+	0% {right: -200px;}
+	40% {right: 0;opacity: 1}
+	60% {right: 0;}
+        90% {opacity: 0}
+	100% {right: -200px;}
+}
+
+@keyframes showToastyGuy 
+{
+	0% {right: -200px;}
+	40% {right: 0;opacity: 1}
+	60% {right: 0;}
+        90% {opacity: 0}
+	100% {right: -200px;}
+}
