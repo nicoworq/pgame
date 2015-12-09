@@ -1,7 +1,7 @@
 
 
 body{
-    background: #FEDA00;
+    background: #FFDB00;
 }
 
 #game-container{
@@ -10,6 +10,7 @@ body{
     background: url(../img/fondo_01.svg)no-repeat;
     background-size: cover;
     background-position: 50%;
+    overflow: hidden;
 }
 
 
@@ -19,6 +20,7 @@ body{
 
 .reno-bg{
     position: absolute;
+    z-index: 20;
 }
 img{max-width: 100%}
 
@@ -26,34 +28,20 @@ img{max-width: 100%}
     right: 0;
     width: 170px;
     top: 10vh;
+    width: 12vw;
 }
 #reno-izq{
     left: 0;
     width: 100px;
     top: 15vh;
+    width: 8vw;
 }
 
 #content-container{
-    display: none;
     text-align: center;
-    background-image: url(../img/circulo.svg);
-    background-repeat: no-repeat;
-    background-position: 57% 50%;
-    background-size: 800px;
-    height: 100vh;
     font-family: Lato;
 }
 
-@media(min-width:1580px){
-    #content-container{background-position: 57% 50%;}
-}
-
-@media(min-width:1700px){
-    #content-container{background-position: 55% 50%;}
-}
-@media(min-width:1900px){
-    #content-container{background-position: 54% 50%;}
-}
 
 #reno-middle-der{
     width: 82px;
@@ -67,6 +55,7 @@ img{max-width: 100%}
     top: 13%;
     left: -1%;
     width: 310px;
+    width: 23vw;
 }
 
 #papa-noel-intro-rastrillo{
@@ -74,6 +63,7 @@ img{max-width: 100%}
     position: absolute;
     top: 85%;
     left: -52px;
+    width: 11vw;
 }
 
 #reno-bottom{
@@ -90,11 +80,12 @@ img{max-width: 100%}
 
 .arbol-bg{position: absolute;}
 
-#arbol-chico{width: 125px;right: 15%;top: 50%;}
+#arbol-chico{width: 125px;right: 15%;top: 50%;width: 10vw;}
 #arbol-grande{
     width: 170px;
     right: 2%;
     top: 11%;
+    width: 13vw;
 }
 
 
@@ -103,7 +94,25 @@ img{max-width: 100%}
  * ----------- */
 
 
-#intro{position: absolute;width: 100%;top: 50%;margin-top: -270px;}
+#intro{position: absolute;width: 100%;top: 50%;margin-top: -330px;z-index: 2;background-image: url(../img/circulo.svg);      background-repeat: no-repeat;background-position: 55% 50%;background-size: contain;padding: 20px 0;}
+
+
+@media(min-width:1024px){
+    #intro{background-position: 62% 50%;}
+}
+@media(min-width:1333px){
+    #intro{background-position: 55% 50%;}
+}
+@media(min-width:1580px){
+    #intro{background-position: 57% 50%;}
+}
+
+@media(min-width:1700px){
+    #intro{background-position: 55% 50%;}
+}
+@media(min-width:1900px){
+    #intro{background-position: 53% 50%;}
+}
 
 
 #intro .container{
@@ -113,20 +122,25 @@ img{max-width: 100%}
 #intro h1{
     font-weight: bold;
     font-size: 22px;
-    margin: 56px 0;
+    margin: 35px 0 43px;
 }
 
 #logo-desafio{
-    margin: 46px 0;
+    margin: 46px auto;
+    width: 422px;
 }
 
 
 
 .logo-pascal{
     display: block;
+   
+    margin: 40px auto;
 }
 
-
+#intro .logo-pascal{
+     width: 230px;
+}
 #intro-content1{}
 
 
@@ -136,6 +150,7 @@ img{max-width: 100%}
     font-size: 36px;
     font-weight: bold;
 }
+
 #pasos{padding: 0;margin: 0;font-size: 24px;list-style: none;}
 
 #intro-content2 h4{
@@ -150,12 +165,42 @@ img{max-width: 100%}
     margin-bottom: 50px;
 }
 
+@media(max-height:630px){
+    #intro-content2 h2{
+        font-size: 27px;
+        margin: 9px;
+    }
+    #pasos{
+        font-size: 20px;
+    }
+    #intro .logo-pascal{
+        margin: 40px auto 19px;
+    }
+    #recuerda{
+    margin-bottom: 30px;
+}
+}
+
+
+
+
+
 /* -----------
  * MEMOTEST
  * ----------- */
 
 
-#memo-container{display: block; font-family: 'Passion One', cursive;/* margin-top: 40px; */}
+#memo-game{display: none; font-family: 'Passion One', cursive;margin-top: 40px;padding: 0;background: #FFDB00;}
+
+#memo-container{
+    position: absolute;
+    width: 100%;
+    height: 761px;
+    top: 50%;
+    margin-top: -380px;
+    z-index: 1;
+    overflow: hidden;
+}
 
 #memo-container .container{position: relative;}
 
@@ -268,20 +313,21 @@ img{max-width: 100%}
     height: 82px;
     border-radius: 85px;
     transform: rotate(-42deg);
-    top: 73px;
+    top: 69px;
     left: 17px;
     z-index: 1;
 }
 
 #toasty-fg{
+    display: none;
     width: 200px;
     height: 28px;
     background: #FEDA00;
     position: absolute;
-    top: 171px;
+    top: 125px;
     transform: rotate(-42deg);
     z-index: 2;
-    left: 35px;
+    left: 91px;
 }
 
 #papa-noel-8bit{
@@ -315,60 +361,397 @@ img{max-width: 100%}
     margin-right: 20px;
     cursor: pointer;
     background: url(../img/gameImg/default.png) no-repeat white 50%;
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition:         all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
 }
+
+.card:hover{
+    transform: scale(1.1);
+}
+
+.card.card-found{
+    background: white;
+    cursor: auto;
+}
+
+.card.card-found:before {
+    content:  "\2713 ";
+    position: absolute;
+    color: green;
+    font-size: 37px;
+    text-align: center;
+    top: 50%;
+    margin-top: -27px;
+}
+
+.card.card-found img{
+    opacity: 0.3;
+}
+
+
+.card.card-found:hover{
+    transform: scale(1);
+}
+
 .card img{}
 .memo-row .card:last-child{}
 
+
+
+/* -----------
+ * READY SET GO
+ * ----------- */
+
+#ready-set-go{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    overflow: hidden;
+    display: none;
+}
+
+#ready-container{
+    padding: 20px;
+    margin-top: 50px;
+    height: 300px;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -150px;
+}
+#ready-container div{display: none; }
+
+#ready1{}
+#ready2{}
+#ready3{}
+
+#set-go{}
+
+
+/* -----------
+ * AJAXING
+ * ----------- */
+
+
+.ajaxing {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: rgba(238, 238, 238, 0.5);
+    text-align: center;
+    top: 0;
+    left: 0;
+    padding: 24% 0px;
+    display: none;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.ajaxing img {
+    -webkit-animation: rotating 1s linear infinite;
+    -moz-animation: rotating 1s linear infinite;
+    -ms-animation: rotating 1s linear infinite;
+    -o-animation: rotating 1s linear infinite;
+    animation: rotating 1s linear infinite;
+}
+
+
+/* -----------
+ * SCORE SCREEN
+ * ----------- */
+
+
+#score-screen{    
+    position: absolute;
+    background: rgba(255, 219, 0, 0);
+    top: 0;
+    width: 100%;
+    /* overflow: hidden; */
+    min-height: 100vh;
+    padding-bottom: 50px;
+    background-image: url(../img/circulo.svg);
+    background-repeat: no-repeat;
+    background-position: 57% 50%;
+    background-size: 1100px;
+    display: none;
+}
+
+#score-container {
+    height: 748px;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -374px;
+}
+
+@media(max-width:1366px){
+    #score-screen{background-position: 79% 50%;}
+}
+
+#score-screen .container{
+    padding: 62px;
+    position: relative;
+}
+
+#papa-noel-puntaje{
+    -webkit-transform:translateZ(0);
+    position: absolute;
+    left: -2000%;
+    top: 172px;
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition:         all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#total-score{
+    color: #5CA26C;
+    font-family: Passion One;
+    font-size: 52px;
+    text-align: center;
+}
+#total-score-text{
+    display: inline-block;
+    line-height: 47px;
+    letter-spacing: -1px;
+    padding-top: 11px;
+    margin-right: 0px;
+}
+#total-score-unit{
+    display: block;
+    margin-top: -5px;
+    font-size: 33px;
+    position: absolute;
+    top: -24px;
+    right: -53px;
+}
+#total-score-value{
+    display: inline-block;
+    font-size: 160px;
+    position: relative;
+    line-height: 160px;
+}
+
+/* -----------
+ * SCORE ITEMS
+ * ----------- */
+
+#score-items{
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 23px;
+}
+
+.score-item{
+    background: #856097;
+    font-family: Lato;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 6px 11px;
+    width: 160px;
+    text-align: left;
+    border-radius: 50px;
+    margin: 0 3px;
+}
+.score-item-text{
+
+}
+.score-item-value{
+    float: right;
+}
+
+/* -----------
+ * FORM SAVE PLAYER
+ * ----------- */
+
+#form-save-player {
+    text-align: center;
+    width: 517px;
+    margin: 0 auto;
+}
+
+#form-save-player h3{
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: normal;
+    color: #211915;
+    text-align: center;
+    margin-bottom: 0;
+}
+#form-save-player h2{
+    font-family: Lato;
+    font-size: 30px;
+    font-weight: bold;
+    color: #E89C38;
+    text-align: center;
+    margin: 5px 0 28px;
+}
+
+
+#form-save-player input[name=sex]{
+    position: absolute;
+    left: -50000%;
+}
+
+#form-save-player input[type=text]{
+    width: 100%;
+    font-family: Lato;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px solid #5B318C;
+    background: white;
+    margin-bottom: 7px;
+    padding: 9px 0;
+}
+#form-save-player input[type=text].input-error{
+    border-color: red;
+}
+#form-save-player button{margin-top: 42px;}
 
 /* -----------
  * MAIN UI
  * ----------- */
 
-.btn-primary{font-family: Open Sans;background: #5CA26C;border: 
-                 none;color: white;font-size: 28px;font-weight: 300;padding: 15px 44px;border-radius: 50px;border-bottom: 3px solid #42723B;}
+.btn-primary{
+    font-family: Open Sans;
+    background: #5CA26C;
+    border: none;
+    color: white;
+    font-size: 28px;
+    font-weight: 300;
+    padding: 15px 44px;
+    border-radius: 50px;
+    border-bottom: 3px solid #42723B;
+}
 
+.btn-primary:hover{background: #6DB77E;}
+.btn-primary:active{background: #5CA06C;border-top: 5px solid #42723B;border-bottom: 0;}
 
 
 
 .show-santa{
-	-webkit-animation:showToastyGuy 1s;
-	   -moz-animation:showToastyGuy 1s;
-	     -o-animation:showToastyGuy 1s;
-	        animation:showToastyGuy 1s;
+    -webkit-animation:showToastyGuy 1s;
+    -moz-animation:showToastyGuy 1s;
+    -o-animation:showToastyGuy 1s;
+    animation:showToastyGuy 1s;
 }
 
 @-webkit-keyframes showToastyGuy 
 {
-	0% {right: -200px;}
-	40% {right: 0;opacity: 1}
-	60% {right: 0;}
-        90% {opacity: 0}
-	100% {right: -200px;}
+    0% {right: -200px;}
+    40% {right: 0;opacity: 1}
+    60% {right: 0;}
+    90% {opacity: 0}
+    100% {right: -200px;}
 }
 
 @-moz-keyframes showToastyGuy 
 {
-	0% {right: -200px;}
-	40% {right: 0;opacity: 1}
-	60% {right: 0;}
-        90% {opacity: 0}
-	100% {right: -200px;}
+    0% {right: -200px;}
+    40% {right: 0;opacity: 1}
+    60% {right: 0;}
+    90% {opacity: 0}
+    100% {right: -200px;}
 }
 
 @-o-keyframes showToastyGuy 
 {
-	0% {right: -200px;}
-	40% {right: 0;opacity: 1}
-	60% {right: 0;}
-        90% {opacity: 0}
-	100% {right: -200px;}
+    0% {right: -200px;}
+    40% {right: 0;opacity: 1}
+    60% {right: 0;}
+    90% {opacity: 0}
+    100% {right: -200px;}
 }
 
 @keyframes showToastyGuy 
 {
-	0% {right: -200px;}
-	40% {right: 0;opacity: 1}
-	60% {right: 0;}
-        90% {opacity: 0}
-	100% {right: -200px;}
+    0% {right: -200px;}
+    40% {right: 0;opacity: 1}
+    60% {right: 0;}
+    90% {opacity: 0}
+    100% {right: -200px;}
+}
+
+
+
+/* -----------
+ * NEXUS ONE 960px
+ * ----------- */
+
+@media(max-width:970px){
+
+    /* -----------
+    * HOME
+    * ----------- */
+
+    #intro{
+        margin-top: -264px;
+    }
+
+    #intro .logo-pascal{
+        width: 230px;
+        width: 19vw;
+        margin-top: 6vh;
+    }
+    #intro #logo-desafio{
+        width: 32vw;
+        margin: 30px auto 21px;
+    }
+
+    #intro .container{
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    #content-container{
+        /* background-size: contain; */
+        position: absolute;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+    }
+
+    #intro #papa-noel-intro{
+        width: 208px;
+    }
+    #intro #arbol-grande{}
+
+    #intro #arbol-chico{}
 }
