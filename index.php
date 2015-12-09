@@ -1,8 +1,8 @@
 <?php
 
-//include_once './php/TokenCSRF.php';
+include_once './php/TokenCSRF.php';
 
-//$tk = new TokenCSRF();
+$tk = new TokenCSRF();
 
 ?>
 <!doctype html>
@@ -262,7 +262,7 @@
 
                         <form id="form-save-player" method="POST" action="#">
                             
-                            <input type="hidden" name="code" value="<?php //echo $tk->generateFormToken('send-score') ?>" />
+                            <input type="hidden" name="code" value="<?php echo $tk->generateFormToken('send-score') ?>" />
                             
                             <h3>Papá Noel necesita saber a quien le tiene que entregar los premios</h3>
 
