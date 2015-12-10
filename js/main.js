@@ -150,7 +150,7 @@ function pascalGame() {
 
 
 
-            if (found === 3) {
+            if (found === 8) {
                 allMatchesFound();
             }
         }
