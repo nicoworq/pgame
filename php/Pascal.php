@@ -46,10 +46,35 @@ class Pascal {
         $stmt->bindParam(':intentos', $intentos, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
-            return true;
+            return $stmt->lastInsertId();
         } else {
             return false;
         }
+    }
+
+    public function getRanking() {
+
+        $dbh = $this->connect();
+        $sql = 'SET @rownumber = 0;';
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+
+        $sql = 'SELECT * , @rownumber:= @rownumber+ 1 as "pos" FROM pascal_game.participantes order by puntaje desc , tiempo asc ;';
+        //$sql = 'SELECT * , count(*) FROM pascal_game.participantes order by puntaje desc , tiempo asc ;';
+
+        $rows = array();
+        try {
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute();
+
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+            echo $ex->getLine();
+        }
+
+
+        return $rows;
     }
 
 }

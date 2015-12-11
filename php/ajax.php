@@ -37,9 +37,10 @@ $intentos = intval($_POST['tries']);
 
 $pascal = new Pascal();
 
+$insertedID = $pascal->insertParticipant($nombre, $email, $dni, $puntaje, $telefono, $tiempo, $coincidencias, $intentos);
 
-if($pascal->insertParticipant($nombre, $email, $dni, $puntaje, $telefono, $tiempo, $coincidencias, $intentos)){
-     echo json_encode(array('enviado' => TRUE));
-}else{
-     echo json_encode(array('enviado' => FALSE, 'DBFAIL' => TRUE));
+if ($insertedID !== FALSE) {
+    echo json_encode(array('enviado' => TRUE, 'idParticipante' => $insertedID));
+} else {
+    echo json_encode(array('enviado' => FALSE, 'DBFAIL' => TRUE));
 }

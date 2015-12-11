@@ -1,13 +1,3 @@
-$(document).ready(function () {
-
-
-
-});
-
-
-
-
-
 
 
 function pascalGame() {
@@ -24,7 +14,8 @@ function pascalGame() {
     var found = 0;
     var score = 0;
     var matchScore = 50;
-
+    
+    var idParticipante;
 
     function initialize() {
 
@@ -212,14 +203,22 @@ function pascalGame() {
             setTimeout(function () {
                 scoreScreenHtml.removeClass('animated bounceInDown');
                 animateSuperSanta();
-            }, 1200)
+            }, 1200);
         });
 
 
 
-        ;
+
     }
 
+
+    function showRankingScreen() {
+
+        var rankingHtml = $('#ranking-screen');
+
+
+
+    }
 
     function showSanta8Bit() {
 
@@ -316,15 +315,56 @@ function pascalGame() {
         $.post('php/ajax.php', $.param(formData), function (json) {
             $('.ajaxing').fadeOut();
             if (json.enviado) {
+                
+                idParticipante = json.idParticipante;                
                 swal("Gracias!", "Se han enviado tus datos. Ya estás participando del sorteo", "success");
             } else {
                 swal("Oops...", "Error al enviar tus datos!", "error");
-
             }
         });
 
     }
+    /*
+     * RANKING
+     */
 
+    this.getRanking = function () {
+
+        $.post('php/ajaxRanking.php', {code: $('#ranking-container').attr('data-ranking-code')}, function (data) {
+
+            if (data.length > 0) {
+                showRanking(data);
+            } else {
+                swal('Puede Fallar', 'Ocurrio un error al recuperar el ranking', 'error');
+            }
+
+        });
+
+    }
+
+    function showRanking(rankings) {
+
+
+        $.each(rankings, function (i, ranking) {
+
+            var pos = '<td><div class="ranking-position">' + ranking.pos + '</div> <td>'
+            var nombre = '<td><div class="ranking-value">' + ranking.nombre + '</div> <td>';
+            var tiempo = '<td><div class="ranking-value">' + ranking.tiempo + '</div> <td>';
+            var coincidencias = '<td><div class="ranking-value">' + ranking.coincidencias + '</div> <td>';
+            var intentos = '<td><div class="ranking-value">' + ranking.intentos + '</div> <td>';
+            var puntaje = '<td><div class="ranking-value">' + ranking.puntaje + '</div> <td>';
+
+            var trClass = '';
+
+            if (ranking.id === idParticipante) {
+                trClass = 'active';
+            }
+            var tr = $('<tr>', {class: trClass}).append(pos + nombre + tiempo + coincidencias + intentos + puntaje);
+
+            $('.ranking-body tbody').append(tr);
+        });
+
+    }
 
 
     /*

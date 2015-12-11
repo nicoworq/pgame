@@ -134,12 +134,12 @@ img{max-width: 100%}
 
 .logo-pascal{
     display: block;
-   
+
     margin: 40px auto;
 }
 
 #intro .logo-pascal{
-     width: 230px;
+    width: 230px;
 }
 #intro-content1{}
 
@@ -177,8 +177,8 @@ img{max-width: 100%}
         margin: 40px auto 19px;
     }
     #recuerda{
-    margin-bottom: 30px;
-}
+        margin-bottom: 30px;
+    }
 }
 
 
@@ -200,6 +200,7 @@ img{max-width: 100%}
     margin-top: -380px;
     z-index: 1;
     overflow: hidden;
+    padding-top: 17px;
 }
 
 #memo-container .container{position: relative;}
@@ -755,3 +756,148 @@ img{max-width: 100%}
 
     #intro #arbol-chico{}
 }
+
+/* -----------
+ * RANKING
+ * ----------- */
+
+#ranking-screen{background: #FFDB00; position: absolute; top: 0;bottom: 0;width: 100%;z-index: 100;}
+
+#ranking-container{position: absolute;top: 50%;width: 100%;margin-top: -336px;}
+#ranking-container .container{
+    position: relative;
+    /* padding: 0 80px; */
+}
+
+
+#papa-noel-ranking{
+    position: absolute;
+    width: 180px;
+    left: 0;
+    top: 37px;
+    z-index: 0;
+}
+
+#arboles-ranking{
+    width: 86px;
+    position: absolute;
+    right: 0;
+    top: -39px;
+    right: 155px;
+}
+
+.ranking-title{
+    text-align: center;
+    width: 321px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.ranking-title .logo-pascal{
+    width: 140px;
+    float: left;
+    margin: 0;
+}
+.ranking-title h3{
+    color: #744C8C;
+    font-family: Passion One;
+    font-size: 44px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 0;
+    float: right;
+}
+
+.ranking-table{
+    position: relative;
+    background: white;
+    text-align: center;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    color: #727272;
+    font-size: 17px;
+    z-index: 2;
+    font-weight: bold;
+}
+.ranking-table table{
+    width: 100%;
+    font-family: Lato;
+    position: relative;
+    z-index: 4;
+}
+.ranking-body {
+    height: 300px;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+.ranking-table table tbody{
+    background: #856097;
+}
+
+.ranking-table tr td{
+    padding: 10px;
+}
+
+.ranking-table tr:nth-child(even) {
+    background-color: #744C8C;
+}
+.ranking-table tr:nth-child(even) .ranking-value {
+    background-color: #856097;
+}
+
+.ranking-table tbody tr:hover , .ranking-table tbody tr.active{
+    background: #FFDB00;
+}
+.ranking-table tbody tr:hover .ranking-value, .ranking-table tbody tr.active .ranking-value{
+    background: #4A8455;
+}
+
+.ranking-table table thead td{
+    padding: 10px;
+}
+
+.ranking-value{
+    background: #744C8C;
+    display: inline-block;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 30px;
+    min-width: 74px;
+}
+
+.ranking-share{
+    font-family: Lato;
+    text-align: center;
+    background: white;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding: 30px;
+}
+.ranking-share h3{
+    color: #4A66A0;
+    font-weight: bold;
+    font-size: 21px;
+    margin: 0;
+}
+.ranking-share h4{
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.ranking-position {
+    background: #FFF;
+    display: inline-block;
+    padding: 6px 9px;
+    border-radius: 50px;
+    color: #744C8C;
+    width: 40px;
+    height: 40px;
+    line-height: 29px;
+    text-align: center;
+}
+
+.btn-fb{ background: #4A66A0;border-bottom: 3px solid #364C77;margin-top: 20px;}

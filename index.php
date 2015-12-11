@@ -1,9 +1,10 @@
 <?php
-
 include_once './php/TokenCSRF.php';
+include_once './php/Pascal.php';
 
 $tk = new TokenCSRF();
 
+$pg = new Pascal();
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -30,11 +31,11 @@ $tk = new TokenCSRF();
     <body>
 
         <div id="game-container">
-            
+
             <div class="ajaxing">
                 <img src="img/loader.png" alt="Loading"/>
             </div>
-            
+
             <div class="reno-bg" id="reno-izq">
                 <img src="img/reno_back.svg" alt="Reno" />
 
@@ -90,7 +91,7 @@ $tk = new TokenCSRF();
                                 <img src="img/logo_desafio_navideño.svg" alt="Desafío Navideño"/>
                             </div>
                             <h1>Demostrale a Papá Noel tu buena memoria<br/>
-                                jugá y ganá premios increibles</h1>
+                                jugá y ganá premios increíbles</h1>
                             <button id="btn-comenzar" class="btn-primary">Comenzar</button>
 
                         </div>
@@ -101,8 +102,8 @@ $tk = new TokenCSRF();
                             <h2>3 Simples Pasos</h2>
                             <ul id="pasos">
                                 <li>- Encontrá las coincidencias - </li>
-                                <li>- Sumá puntos y entra en el ranking -</li>
-                                <li>- Participa de increibles premios -</li>
+                                <li>- Sumá puntos y entrá en el ranking -</li>
+                                <li>- Participá de increíbles premios -</li>
                             </ul>
 
 
@@ -261,9 +262,9 @@ $tk = new TokenCSRF();
                         </div>
 
                         <form id="form-save-player" method="POST" action="#">
-                            
+
                             <input type="hidden" name="code" value="<?php echo $tk->generateFormToken('send-score') ?>" />
-                            
+
                             <h3>Papá Noel necesita saber a quien le tiene que entregar los premios</h3>
 
                             <h2>¡Dejanos tus datos y participá!</h2>
@@ -281,6 +282,66 @@ $tk = new TokenCSRF();
                 </div>
 
 
+            </div>
+
+            <div id="ranking-screen">
+                <div id="ranking-container" data-ranking-code="<?php echo $tk->generateFormToken('get-ranking') ?>">
+                    <div class="container">
+
+                        <div id="papa-noel-ranking">
+                            <img src="img/super_santa_small.svg" alt="Papa Noel"/>
+                        </div>
+
+                        <div id="arboles-ranking">
+                            <img src="img/arbol_doble.svg"/>
+                        </div>
+
+                        <div class="ranking-title">
+                            <div class="logo-pascal">
+                                <img src="img/pascal-logo.png" alt="Pascal"/>
+                            </div>
+                            <h3>Ranking</h3>
+                        </div>
+
+                        <div class="ranking-table">
+
+                            <div class="ranking-head">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td>Puesto</td>
+                                            <td>Nombre</td>
+                                            <td>Tiempo<small>(Seg)</small></td>
+                                            <td>Intentos</td>
+                                            <td>Aciertos</td>
+                                            <td>Puntaje</td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="ranking-body">
+                                <table>
+                                    
+                                    <tbody>
+
+
+                                       
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </div>
+                        <div class="ranking-share">
+                            <h3>¡Demostrá que sos el mejor!</h3>
+                            <h4>Compartí el juego con tus amigos en faceboook y retalos a que superen tu puntaje.</h4>
+                            <button class="btn-primary btn-fb"><img src="img/fb.svg"/> <span>Compartir</span></button>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
         </div>
