@@ -27,8 +27,17 @@ $pg = new Pascal();
         <link rel="stylesheet" href="css/extCss.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+        <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Navidad en Pascal" />
+        <meta property="og:description"   content="Demostrale a Papá Noel tu buena memoria , jugá y ganá premios increíbles" />
+        <meta property="og:image"         content="" />
+
     </head>
     <body>
+
+
 
         <div id="game-container">
 
@@ -270,10 +279,10 @@ $pg = new Pascal();
                             <h2>¡Dejanos tus datos y participá!</h2>
 
                             <input type="text" name="sex" placeholder="Sex *" value=""/>
-                            <input type="text" name="name" placeholder="Nombre Completo *" value="nico"/>
-                            <input type="text" name="email" placeholder="Email *" value="email@email.co"/>
-                            <input type="text" name="dni" placeholder="DNI * " value="333"/>
-                            <input type="text" name="phone" placeholder="Teléfono" value="telefono"/>
+                            <input type="text" name="name" placeholder="Nombre Completo *" value=""/>
+                            <input type="text" name="email" placeholder="Email *" value=""/>
+                            <input type="text" name="dni" placeholder="DNI * " value=""/>
+                            <input type="text" name="phone" placeholder="Teléfono" value=""/>
 
                             <button class="btn-primary">Enviar y participar</button>
                         </form>
@@ -321,11 +330,11 @@ $pg = new Pascal();
                             </div>
                             <div class="ranking-body">
                                 <table>
-                                    
+
                                     <tbody>
 
 
-                                       
+
 
 
                                     </tbody>
@@ -337,7 +346,16 @@ $pg = new Pascal();
                         <div class="ranking-share">
                             <h3>¡Demostrá que sos el mejor!</h3>
                             <h4>Compartí el juego con tus amigos en faceboook y retalos a que superen tu puntaje.</h4>
-                            <button class="btn-primary btn-fb"><img src="img/fb.svg"/> <span>Compartir</span></button>
+
+
+                            <button class="btn-primary btn-fb" 
+                                 data-href="http://www.your-domain.com/your-page.html">
+                                <img src="img/fb.svg"/> <span>Compartir</span>
+                            </button>
+
+
+
+
                         </div>
 
                     </div>

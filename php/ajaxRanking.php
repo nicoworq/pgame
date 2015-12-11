@@ -19,5 +19,3 @@ if (!$tk->verifyFormToken('get-ranking', $token)) {
 $pg = new Pascal();
 
 echo json_encode($pg->getRanking());
-
-die();

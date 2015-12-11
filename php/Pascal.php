@@ -46,7 +46,7 @@ class Pascal {
         $stmt->bindParam(':intentos', $intentos, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
-            return $stmt->lastInsertId();
+            return $dbh->lastInsertId();
         } else {
             return false;
         }
@@ -59,7 +59,7 @@ class Pascal {
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
 
-        $sql = 'SELECT * , @rownumber:= @rownumber+ 1 as "pos" FROM pascal_game.participantes order by puntaje desc , tiempo asc ;';
+        $sql = 'SELECT * , @rownumber:= @rownumber+ 1 as "pos" FROM pascal_game.participantes order by puntaje desc , tiempo desc ;';
         //$sql = 'SELECT * , count(*) FROM pascal_game.participantes order by puntaje desc , tiempo asc ;';
 
         $rows = array();

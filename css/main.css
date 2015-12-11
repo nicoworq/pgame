@@ -761,7 +761,7 @@ img{max-width: 100%}
  * RANKING
  * ----------- */
 
-#ranking-screen{background: #FFDB00; position: absolute; top: 0;bottom: 0;width: 100%;z-index: 100;}
+#ranking-screen{background: #FFDB00; position: absolute; top: 0;bottom: 0;width: 100%;z-index: 100;display: none;}
 
 #ranking-container{position: absolute;top: 50%;width: 100%;margin-top: -336px;}
 #ranking-container .container{
@@ -900,4 +900,12 @@ img{max-width: 100%}
     text-align: center;
 }
 
-.btn-fb{ background: #4A66A0;border-bottom: 3px solid #364C77;margin-top: 20px;}
+.btn-fb{ background: #4A66A0;border-bottom: 3px solid #364C77;margin-top: 20px;display: inline-block;}
+
+/* -----------
+ * FACEBOOK SHARE
+ * ----------- */
+
+.pluginButton{
+    background: red;
+}

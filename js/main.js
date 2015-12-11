@@ -3,7 +3,7 @@
 function pascalGame() {
 
     var _stop = false;
-    var _sec = 60;
+    var _sec = 40;
     var _min = 0;
     var _ttime = 0;
 
@@ -14,7 +14,7 @@ function pascalGame() {
     var found = 0;
     var score = 0;
     var matchScore = 50;
-    
+
     var idParticipante;
 
     function initialize() {
@@ -31,12 +31,18 @@ function pascalGame() {
         });
 
 
+        $('#time span.value').html(_sec);
 
 
         $('#form-save-player').submit(function (e) {
 
             e.preventDefault();
             formSubmit();
+        });
+
+        $('.btn-fb').click(function () {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalonline.com.ar/', 'title', 'width=500,height=600')
+
         });
 
     }
@@ -216,6 +222,15 @@ function pascalGame() {
 
         var rankingHtml = $('#ranking-screen');
 
+        rankingHtml.css('display', 'block').addClass('animated bounceInUp');
+
+
+        getRankings();
+
+
+        setTimeout(function () {
+            rankingHtml.removeClass('animated bounceInUp')
+        }, 1200);
 
 
     }
@@ -315,9 +330,11 @@ function pascalGame() {
         $.post('php/ajax.php', $.param(formData), function (json) {
             $('.ajaxing').fadeOut();
             if (json.enviado) {
-                
-                idParticipante = json.idParticipante;                
-                swal("Gracias!", "Se han enviado tus datos. Ya estás participando del sorteo", "success");
+
+                idParticipante = json.idParticipante;
+
+                showRankingScreen();
+
             } else {
                 swal("Oops...", "Error al enviar tus datos!", "error");
             }
@@ -328,30 +345,33 @@ function pascalGame() {
      * RANKING
      */
 
-    this.getRanking = function () {
+    getRankings = function () {
 
         $.post('php/ajaxRanking.php', {code: $('#ranking-container').attr('data-ranking-code')}, function (data) {
 
+            console.log(data);
             if (data.length > 0) {
-                showRanking(data);
+                showRankingValues(data);
             } else {
                 swal('Puede Fallar', 'Ocurrio un error al recuperar el ranking', 'error');
             }
 
         });
 
-    }
+    };
 
-    function showRanking(rankings) {
+    function showRankingValues(rankings) {
 
+        console.log('showRankings')
 
         $.each(rankings, function (i, ranking) {
 
             var pos = '<td><div class="ranking-position">' + ranking.pos + '</div> <td>'
             var nombre = '<td><div class="ranking-value">' + ranking.nombre + '</div> <td>';
             var tiempo = '<td><div class="ranking-value">' + ranking.tiempo + '</div> <td>';
-            var coincidencias = '<td><div class="ranking-value">' + ranking.coincidencias + '</div> <td>';
+            var coincidencias = '<td><div class="ranking-value">' + ranking.coincidencias + '/8</div> <td>';
             var intentos = '<td><div class="ranking-value">' + ranking.intentos + '</div> <td>';
+
             var puntaje = '<td><div class="ranking-value">' + ranking.puntaje + '</div> <td>';
 
             var trClass = '';
@@ -359,7 +379,7 @@ function pascalGame() {
             if (ranking.id === idParticipante) {
                 trClass = 'active';
             }
-            var tr = $('<tr>', {class: trClass}).append(pos + nombre + tiempo + coincidencias + intentos + puntaje);
+            var tr = $('<tr>', {class: trClass}).append(pos + nombre + tiempo  + intentos + coincidencias + puntaje);
 
             $('.ranking-body tbody').append(tr);
         });
@@ -399,11 +419,9 @@ function pascalGame() {
     }
 
     function timesUp() {
-        console.log('timesup')
-
         stopTimer();
         $(".card").unbind("click", showCard);
-
+        showScoresScreen();
     }
 
     function stopTimer() {
@@ -425,10 +443,6 @@ function pascalGame() {
             updateTime();
         }, 'interval');
     }
-    ;
-
-
-
 
 
     function startGame() {
