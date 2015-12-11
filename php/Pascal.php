@@ -14,12 +14,11 @@
 class Pascal {
 
     private function connect() {
-        $hostname = 'localhost';
-        $username = 'root';
-        $password = '';
+        
+        include_once './connection.php';
 
         try {
-            $dbh = new PDO("mysql:host={$hostname};dbname=pascal_game", $username, $password);
+            $dbh = new PDO("mysql:host={$hostname};dbname={$dbName}", $username, $password);
 
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // <== add this line
             //echo 'Connected to Database<br/>';
