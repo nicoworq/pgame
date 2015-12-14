@@ -24,7 +24,7 @@ $pg = new Pascal();
         <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Passion+One:700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/extCss.css">
+        <link rel="stylesheet" href="css/extCss.min.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 

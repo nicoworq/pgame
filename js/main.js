@@ -19,38 +19,60 @@ function pascalGame() {
 
     function initialize() {
 
-        $('#btn-comenzar').click(showInstructionsScreen);
 
-        $('#btn-start-game').click(startGame);
-        $(".card img").hide();
-        $(".card").click(showCard);
-        //randomizeCards();
+        window.addEventListener("hashchange", hashChanged);
 
-        $('input[type=text]').keydown(function () {
-            $(this).removeClass('input-error')
+
+        $(document).ready(function () {
+            $('#btn-comenzar').click(showInstructionsScreen);
+
+            $('#btn-start-game').click(startGame);
+            $(".card img").hide();
+            $(".card").click(showCard);
+            //randomizeCards();
+
+            $('input[type=text]').keydown(function () {
+                $(this).removeClass('input-error');
+            });
+
+
+            $('#time span.value').html(_sec);
+
+
+            $('#form-save-player').submit(function (e) {
+
+                e.preventDefault();
+                formSubmit();
+            });
+
+            $('.btn-fb').click(function () {
+                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalonline.com.ar/', 'title', 'width=500,height=600');
+
+            });
         });
 
 
-        $('#time span.value').html(_sec);
-
-
-        $('#form-save-player').submit(function (e) {
-
-            e.preventDefault();
-            formSubmit();
-        });
-
-        $('.btn-fb').click(function () {
-            window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalonline.com.ar/', 'title', 'width=500,height=600')
-
-        });
 
     }
 
     initialize();
 
 
+    function hashChanged() {
+        console.log(location.hash);
 
+
+
+        /*
+         
+         
+         ga('send', 'pageview', {
+         'page': location.pathname + location.search  + location.hash
+         });
+         
+         */
+
+    }
 
 
     function randomizeCards() {
@@ -181,6 +203,8 @@ function pascalGame() {
 
     function showInstructionsScreen() {
 
+        window.location.hash = 'instrucciones';
+
         $('#intro-content1').fadeOut(function () {
             $('#intro-content2').fadeIn();
         });
@@ -189,6 +213,8 @@ function pascalGame() {
 
     function showScoresScreen() {
 
+        window.location.hash = 'puntaje';
+
 
         var scoreScreenHtml = $('#score-screen');
 
@@ -196,8 +222,6 @@ function pascalGame() {
         scoreScreenHtml.find('#score-tries .score-item-value').html(count);
         scoreScreenHtml.find('#score-matches .score-item-value').html(found);
         scoreScreenHtml.find('#total-score-value b').html(score);
-
-
 
 
         $('#game-container').css('background', 'none');
@@ -219,7 +243,9 @@ function pascalGame() {
 
 
     function showRankingScreen() {
-
+        
+        window.location.hash = 'ranking';
+        
         var rankingHtml = $('#ranking-screen');
 
         rankingHtml.css('display', 'block').addClass('animated bounceInUp');
@@ -379,7 +405,7 @@ function pascalGame() {
             if (ranking.id === idParticipante) {
                 trClass = 'active';
             }
-            var tr = $('<tr>', {class: trClass}).append(pos + nombre + tiempo  + intentos + coincidencias + puntaje);
+            var tr = $('<tr>', {class: trClass}).append(pos + nombre + tiempo + intentos + coincidencias + puntaje);
 
             $('.ranking-body tbody').append(tr);
         });
@@ -446,6 +472,9 @@ function pascalGame() {
 
 
     function startGame() {
+
+        window.location.hash = 'juego';
+
         $('#content-container').fadeOut();
         $('#memo-game').fadeIn();
         $('#ready-set-go').fadeIn();
