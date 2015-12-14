@@ -1,5 +1,24 @@
 
 
+
+/*
+ * LOADER
+ */
+
+imagesLoaded('#intro',{ background: true } , function (instance) {
+    console.log('all images are loaded');
+
+
+    var d = document.getElementById("main-loader");
+    d.className = "animated fadeOut";
+
+    window.setTimeout(function () {
+        var d = document.getElementById("main-loader");
+        d.className = 'remove';
+    }, 800);
+
+});
+
 function pascalGame() {
 
     var _stop = false;
@@ -58,7 +77,7 @@ function pascalGame() {
             });
 
             $('#share-extra').click(function () {
-                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalgames.com.ar/', 'Compartir en Facebook', 'width=500,height=300');                
+                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalgames.com.ar/', 'Compartir en Facebook', 'width=500,height=300');
 
             });
             $('#share-extra').click(function () {

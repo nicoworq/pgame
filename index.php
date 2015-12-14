@@ -36,7 +36,9 @@ $pg = new Pascal();
 
     </head>
     <body>
-
+        <div id="main-loader">
+            <img src="img/loader.png"/>
+        </div>
 
 
         <div id="game-container">
@@ -254,7 +256,7 @@ $pg = new Pascal();
                             </span>
                         </div>
 
-                        <h4>¡Compartiendo tu resultado en facebook
+                        <h4>¡Compartiendo tu resultado en Facebook
                             sumás 50pts y más chances de ganar!</h4>
                         <button id="share-extra" class="btn-primary btn-fb" data-code="<?php echo $tk->generateFormToken('code-fb'); ?>"
                                 data-href="http://pascalgames.com.ar">
@@ -376,7 +378,7 @@ $pg = new Pascal();
                                 <img src="img/fb.svg"/> <span>Compartir</span>
                             </button>
 
-
+                            <a href="http://www.pascalonline.com.ar/" class="volver-pascal">Volver a Pascal</a>
 
 
                         </div>
