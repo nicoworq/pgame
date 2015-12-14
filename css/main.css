@@ -81,10 +81,11 @@ img{max-width: 100%}
 #papa-noel-intro{
     position: absolute;
     top: 13%;
-    left: -1%;
+    left: 3%;
     width: 310px;
     width: 23vw;
 }
+
 
 #papa-noel-intro-rastrillo{
     width: 133px;
@@ -116,6 +117,11 @@ img{max-width: 100%}
     width: 13vw;
 }
 
+@media(min-width:1650px){
+    #papa-noel-intro{
+        left: -3%;
+    }
+}
 
 /* -----------
  * INTRO SCREEN

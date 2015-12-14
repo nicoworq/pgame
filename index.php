@@ -47,11 +47,11 @@ $pg = new Pascal();
                 <img src="img/loader.png" alt="Loading"/>
             </div>
 
-            <div class="reno-bg" id="reno-izq" data-parallaxify-range-x="0" data-parallaxify-range-y="50">
+            <div class="reno-bg" id="reno-izq" data-parallaxify-range-x="0" data-parallaxify-range-y="25">
                 <img src="img/reno_back.svg" alt="Reno" />
 
             </div>
-            <div class="reno-bg" id="reno-der" data-parallaxify-range-x="0" data-parallaxify-range-y="30">
+            <div class="reno-bg" id="reno-der" data-parallaxify-range-x="0" data-parallaxify-range-y="15">
                 <img src="img/reno.svg" alt="Reno" />
             </div>
 
@@ -59,10 +59,10 @@ $pg = new Pascal();
                 <img src="img/reno_middle.svg" alt="Reno"/>
             </div>
 
-            <div class="reno-bg" id="reno-bottom" data-parallaxify-range-x="100" data-parallaxify-range-y="0">
+            <div class="reno-bg" id="reno-bottom" data-parallaxify-range-x="50" data-parallaxify-range-y="0">
                 <img src="img/reno_middle.svg" alt="Reno"/>
             </div>
-            <div class="reno-bg" id="reno-top" data-parallaxify-range-x="110" data-parallaxify-range-y="0">
+            <div class="reno-bg" id="reno-top" data-parallaxify-range-x="40" data-parallaxify-range-y="0">
                 <img src="img/reno_middle.svg" alt="Reno"/>
             </div>
 
@@ -76,18 +76,18 @@ $pg = new Pascal();
 
                         <!-- Objetos -->
 
-                        <div id="papa-noel-intro" data-parallaxify-range-x="100" data-parallaxify-range-y="50">
+                        <div id="papa-noel-intro" data-parallaxify-range-x="50" data-parallaxify-range-y="25">
                             <img src="img/santa_1.svg" alt="Papa Noel"/>
                         </div>
-                        <div id="papa-noel-intro-rastrillo" data-parallaxify-range-x="50" data-parallaxify-range-y="25">
+                        <div id="papa-noel-intro-rastrillo" data-parallaxify-range-x="25" data-parallaxify-range-y="12">
                             <img src="img/rastrillos.svg" alt="Rastrillo"/>
                         </div>
 
 
-                        <div id="arbol-grande" class="arbol-bg" data-parallaxify-range-x="70" data-parallaxify-range-y="30">
+                        <div id="arbol-grande" class="arbol-bg" data-parallaxify-range-x="35" data-parallaxify-range-y="15">
                             <img src="img/arbol2.svg" alt="Arbol"/>
                         </div>
-                        <div id="arbol-chico" class="arbol-bg" data-parallaxify-range-x="80" data-parallaxify-range-y="20">
+                        <div id="arbol-chico" class="arbol-bg" data-parallaxify-range-x="40" data-parallaxify-range-y="10">
                             <img src="img/arbol.svg" alt="Arbol"/>
                         </div>
 
@@ -327,7 +327,7 @@ $pg = new Pascal();
                 <div id="ranking-container" data-ranking-code="<?php echo $tk->generateFormToken('get-ranking') ?>">
                     <div class="container">
 
-                        <div id="papa-noel-ranking">
+                        <div id="papa-noel-ranking" class="pulse">
                             <img src="img/super_santa_small.svg" alt="Papa Noel"/>
                         </div>
 
@@ -408,22 +408,22 @@ $pg = new Pascal();
         <script src="js/plugins.min.js"></script>
         <script src="js/main.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
-            (function (b, o, i, l, e, r) {
-                b.GoogleAnalyticsObject = l;
-                b[l] || (b[l] =
-                        function () {
-                            (b[l].q = b[l].q || []).push(arguments)
-                        });
-                b[l].l = +new Date;
-                e = o.createElement(i);
-                r = o.getElementsByTagName(i)[0];
-                e.src = '//www.google-analytics.com/analytics.js';
-                r.parentNode.insertBefore(e, r)
-            }(window, document, 'script', 'ga'));
-            ga('create', 'UA-XXXXX-X', 'auto');
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-34294796-8', 'auto');
             ga('send', 'pageview');
+
         </script>
     </body>
 </html>

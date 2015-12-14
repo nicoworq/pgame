@@ -5,7 +5,7 @@
  * LOADER
  */
 
-imagesLoaded('#intro',{ background: true } , function (instance) {
+imagesLoaded('#intro', {background: true}, function (instance) {
     console.log('all images are loaded');
 
 
@@ -113,17 +113,9 @@ function pascalGame() {
 
 
     function hashChanged() {
-        console.log(location.hash);
-
-        /*
-         
-         
-         ga('send', 'pageview', {
-         'page': location.pathname + location.search  + location.hash
-         });
-         
-         */
-
+        ga('send', 'pageview', {
+            'page': window.location.pathname + window.location.search + window.location.hash
+        });
     }
 
 
@@ -323,28 +315,27 @@ function pascalGame() {
             rankingHtml.removeClass('animated bounceInUp');
         }, 1200);
 
-        setTimeout(function () {
-            scrollToParticipantScore();
-        }, 1300)
+
     }
 
 
     function scrollToParticipantScore() {
 
-        $('.ranking-body').animate({
-            scrollTop: $(".ranking-body .active").offset().top
+        window.setTimeout(function () {
+            $('.ranking-body').scrollTo($(".ranking-body .active"), 2000);
         }, 1000);
 
-    }
 
+
+    }
 
     function showSanta8Bit() {
 
         var santa = $('#papa-noel-8bit');
-        santa.addClass('show-santa')
+        santa.addClass('show-santa');
 
         $.timer(1000, function () {
-            santa.removeClass('show-santa')
+            santa.removeClass('show-santa');
         }, 'timeout');
 
     }
@@ -496,6 +487,10 @@ function pascalGame() {
             $('.ranking-body tbody').append(tr);
         });
 
+
+
+        scrollToParticipantScore();
+
     }
 
 
@@ -561,7 +556,7 @@ function pascalGame() {
 
         window.location.hash = 'juego';
 
-        $('#reno-bottom , #reno-top').fadeOut();
+        $('#reno-bottom , #reno-top, #reno-izq, #reno-der, #reno-middle-der').fadeOut();
 
         $('#content-container').fadeOut();
         $('#memo-game').fadeIn();
