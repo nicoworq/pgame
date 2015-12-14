@@ -32,7 +32,7 @@ $pg = new Pascal();
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Navidad en Pascal" />
         <meta property="og:description"   content="Demostrale a Papá Noel tu buena memoria , jugá y ganá premios increíbles" />
-        <meta property="og:image"         content="http://pascalgames.com.ar/img/share.jpg" />
+        <meta property="og:image"         content="http://navidad.pascalonline.com.ar/img/share.jpg" />
 
     </head>
     <body>
@@ -259,7 +259,7 @@ $pg = new Pascal();
                         <h4>¡Compartiendo tu resultado en Facebook
                             sumás 50pts y más chances de ganar!</h4>
                         <button id="share-extra" class="btn-primary btn-fb" data-code="<?php echo $tk->generateFormToken('code-fb'); ?>"
-                                data-href="http://pascalgames.com.ar">
+                                data-href="http://navidad.pascalonline.com.ar/">
                             <img src="img/fb.svg"/> <span>Compartir</span>
                         </button>
                         <a href="#" id="no-share">No, gracias</a>

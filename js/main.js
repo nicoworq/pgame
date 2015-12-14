@@ -72,12 +72,12 @@ function pascalGame() {
             });
 
             $('.btn-fb').click(function () {
-                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalgames.com.ar/', 'Compartir en Facebook', 'width=500,height=300');
+                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//navidad.pascalonline.com.ar/', 'Compartir en Facebook', 'width=500,height=300');
 
             });
 
             $('#share-extra').click(function () {
-                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalgames.com.ar/', 'Compartir en Facebook', 'width=500,height=300');
+                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//navidad.pascalonline.com.ar/', 'Compartir en Facebook', 'width=500,height=300');
 
             });
             $('#share-extra').click(function () {
