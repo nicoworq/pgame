@@ -17,7 +17,7 @@ class TokenCSRF {
 
     public function __construct() {
 
-        if (session_status() == PHP_SESSION_NONE) {
+        if (session_id() == '') {
             session_start();
         }
     }
@@ -39,7 +39,7 @@ class TokenCSRF {
     }
 
     public function verifyFormToken($form, $token, $delta_time = 0) {
-        
+
         // comprueba si hay un token registrado en sesión para el formulario
         if (!isset($_SESSION['csrf'][$form . '_token'])) {
             return false;
