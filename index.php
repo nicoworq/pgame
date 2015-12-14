@@ -1,5 +1,4 @@
 <?php
-
 include_once './php/TokenCSRF.php';
 include_once './php/Pascal.php';
 
@@ -30,11 +29,11 @@ $pg = new Pascal();
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
-        <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
+        <meta property="og:url"           content="http://pascalgames.com.ar" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Navidad en Pascal" />
         <meta property="og:description"   content="Demostrale a Papá Noel tu buena memoria , jugá y ganá premios increíbles" />
-        <meta property="og:image"         content="http://navidad.pascalonline.com.ar/img/share.jpg" />
+        <meta property="og:image"         content="http://pascalgames.com.ar/img/share.jpg" />
 
     </head>
     <body>
@@ -261,7 +260,7 @@ $pg = new Pascal();
                         <h4>¡Compartiendo tu resultado en Facebook
                             sumás 50pts y más chances de ganar!</h4>
                         <button id="share-extra" class="btn-primary btn-fb" data-code="<?php echo $tk->generateFormToken('code-fb'); ?>"
-                                data-href="http://navidad.pascalonline.com.ar/">
+                                data-href="http://pascalgames.com.ar/">
                             <img src="img/fb.svg"/> <span>Compartir</span>
                         </button>
                         <a href="#" id="no-share">No, gracias</a>
@@ -423,7 +422,7 @@ $pg = new Pascal();
                 m.parentNode.insertBefore(a, m)
             })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', 'UA-34294796-8', 'auto');
+            ga('create', 'UA-34294796-9', 'auto');
             ga('send', 'pageview');
 
         </script>
