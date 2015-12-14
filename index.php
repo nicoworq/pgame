@@ -18,7 +18,7 @@ $pg = new Pascal();
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
               
-        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="shortcut icon" href="http://www.pascalgames.com.ar/favicon.ico" />
         <link rel="stylesheet" href="css/bootstrap.min.css">
 
         <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
@@ -374,7 +374,7 @@ $pg = new Pascal();
 
 
                             <button class="btn-primary btn-fb" 
-                                    data-href="http://www.your-domain.com/your-page.html">
+                                    data-href="http://pascalgames.com.ar">
                                 <img src="img/fb.svg"/> <span>Compartir</span>
                             </button>
 
