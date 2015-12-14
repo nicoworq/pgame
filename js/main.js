@@ -6,8 +6,6 @@
  */
 
 imagesLoaded('#intro', {background: true}, function (instance) {
-    console.log('all images are loaded');
-
 
     var d = document.getElementById("main-loader");
     d.className = "animated fadeOut";
@@ -452,7 +450,6 @@ function pascalGame() {
 
         $.post('php/ajaxRanking.php', {code: $('#ranking-container').attr('data-ranking-code')}, function (data) {
 
-            console.log(data);
             if (data.length > 0) {
                 showRankingValues(data);
             } else {
@@ -464,8 +461,6 @@ function pascalGame() {
     };
 
     function showRankingValues(rankings) {
-
-        console.log('showRankings')
 
         $.each(rankings, function (i, ranking) {
 
@@ -532,20 +527,18 @@ function pascalGame() {
     }
 
     function stopTimer() {
-        console.log('stopTImer')
         _stop = true;
-        console.log(_stop);
+
     }
 
 
     function startTimer() {
         _ttime += 1;
-        console.log('start timer')
+
         $.timer(1000, function (timer) {
             if (_stop) {
                 timer.stop();
                 return false;
-                console.log('timer.stop()')
             }
             updateTime();
         }, 'interval');
