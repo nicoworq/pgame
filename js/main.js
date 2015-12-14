@@ -22,7 +22,7 @@ imagesLoaded('#intro',{ background: true } , function (instance) {
 function pascalGame() {
 
     var _stop = false;
-    var _sec = 1;
+    var _sec = 40;
     var _min = 0;
     var _ttime = 0;
 
@@ -72,7 +72,7 @@ function pascalGame() {
             });
 
             $('.btn-fb').click(function () {
-                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalonline.com.ar/', 'Compartir en Facebook', 'width=500,height=300');
+                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalgames.com.ar/', 'Compartir en Facebook', 'width=500,height=300');
 
             });
 

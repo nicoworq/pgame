@@ -32,7 +32,7 @@ $pg = new Pascal();
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Navidad en Pascal" />
         <meta property="og:description"   content="Demostrale a Papá Noel tu buena memoria , jugá y ganá premios increíbles" />
-        <meta property="og:image"         content="http://www.your-domain.com/img/share.jpg" />
+        <meta property="og:image"         content="http://pascalgames.com.ar/img/share.jpg" />
 
     </head>
     <body>
