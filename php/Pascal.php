@@ -14,7 +14,7 @@
 class Pascal {
 
     private function connect() {
-        
+
         include_once './connection.php';
 
         try {
@@ -49,6 +49,19 @@ class Pascal {
         } else {
             return false;
         }
+    }
+
+    public function participantShared($id, $score) {
+        
+        $score = intval($score) + 50;
+        
+        $dbh = $this->connect();
+
+        $stmt = $dbh->prepare("UPDATE participantes SET compartio = 1 , puntaje=:score WHERE id = :id ;");
+
+        $stmt->bindParam(':score', $score, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        return $stmt->execute();
     }
 
     public function getRanking() {

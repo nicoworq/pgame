@@ -2,15 +2,20 @@
 
 body{
     background: #FFDB00;
+
 }
 
 #game-container{
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background: url(../img/fondo_01.svg)no-repeat;
     background-size: cover;
     background-position: 50%;
     overflow: hidden;
+    /* min-height: 100vh; */
+    position: absolute;
+    min-height: 655px;
+    min-width: 1333px;
 }
 
 
@@ -20,15 +25,15 @@ body{
 
 .reno-bg{
     position: absolute;
-    z-index: 20;
+    z-index: 102;
 }
 img{max-width: 100%}
 
 #reno-der{
-    right: 0;
+    right: -6px;
     width: 170px;
     top: 10vh;
-    width: 12vw;
+    width: 13vw;
 }
 #reno-izq{
     left: 0;
@@ -114,6 +119,10 @@ img{max-width: 100%}
     #intro{background-position: 53% 50%;}
 }
 
+@media(max-height:768px){
+    #intro{margin-top: -332px;}
+}
+
 
 #intro .container{
     position: relative;
@@ -162,7 +171,7 @@ img{max-width: 100%}
 #recuerda{
     color: #211915;
     font-size: 16px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 @media(max-height:630px){
@@ -190,18 +199,21 @@ img{max-width: 100%}
  * ----------- */
 
 
-#memo-game{display: none; font-family: 'Passion One', cursive;margin-top: 40px;padding: 0;background: #FFDB00;}
+#memo-game{display: none;  font-family: 'Passion One', cursive;margin-top: 40px;padding: 0;background: #FFDB00;}
 
 #memo-container{
     position: absolute;
     width: 100%;
     height: 761px;
     top: 50%;
-    margin-top: -380px;
+    margin-top: -424px;
     z-index: 1;
     overflow: hidden;
     padding-top: 17px;
 }
+
+
+
 
 #memo-container .container{position: relative;}
 
@@ -212,6 +224,23 @@ img{max-width: 100%}
     position: relative;
     text-align: center;
     margin-top: 116px;
+}
+
+@media(max-height:768px){
+    #memo-game{
+        margin-top: 0;
+    }
+    #memo-container{height: auto;top: 0;margin-top: 0;padding-top: 17px;}
+    #time{
+        margin-top: 95px;
+    }
+    #memo-container .logo-pascal{
+        margin-top: 15px;
+    }
+
+    #score{
+        margin-top: 166px !important;
+    }
 }
 
 #time span{font-size: 81px;line-height: 65px;text-shadow: 7px -3px 0px rgba(57,55,69,0.2);}
@@ -314,9 +343,10 @@ img{max-width: 100%}
     height: 82px;
     border-radius: 85px;
     transform: rotate(-42deg);
-    top: 69px;
+    top: 48px;
     left: 17px;
     z-index: 1;
+    display: none;
 }
 
 #toasty-fg{
@@ -398,7 +428,19 @@ img{max-width: 100%}
 .card img{}
 .memo-row .card:last-child{}
 
-
+@media(max-height:768px){
+    .memo-row{
+        margin-bottom: 10px;
+    }
+    .card{
+        width: 150px;
+        height: 145px;
+        margin-right: 15px;
+    }
+    #cards-container{
+        margin-top: 0;
+    }
+}
 
 /* -----------
  * READY SET GO
@@ -499,12 +541,12 @@ img{max-width: 100%}
  * ----------- */
 
 
-#score-screen{    
+#score-screen{
     position: absolute;
     background: rgba(255, 219, 0, 0);
     top: 0;
     width: 100%;
-    /* overflow: hidden; */
+    overflow: hidden;
     min-height: 100vh;
     padding-bottom: 50px;
     background-image: url(../img/circulo.svg);
@@ -520,6 +562,10 @@ img{max-width: 100%}
     width: 100%;
     top: 50%;
     margin-top: -374px;
+}
+
+@media(max-height:768px){
+    #score-container{height: auto;overflow: hidden;position: relative;top: 0;margin-top: 0;}
 }
 
 @media(max-width:1366px){
@@ -543,8 +589,10 @@ img{max-width: 100%}
 #total-score{
     color: #5CA26C;
     font-family: Passion One;
-    font-size: 52px;
+    font-size: 46px;
     text-align: center;
+    /* line-height: 52px; */
+    /* height: 161px; */
 }
 #total-score-text{
     display: inline-block;
@@ -563,9 +611,9 @@ img{max-width: 100%}
 }
 #total-score-value{
     display: inline-block;
-    font-size: 160px;
+    font-size: 136px;
     position: relative;
-    line-height: 160px;
+    line-height: 124px;
 }
 
 /* -----------
@@ -622,7 +670,7 @@ img{max-width: 100%}
     font-weight: bold;
     color: #E89C38;
     text-align: center;
-    margin: 5px 0 28px;
+    margin: 5px 0 20px;
 }
 
 
@@ -644,7 +692,64 @@ img{max-width: 100%}
 #form-save-player input[type=text].input-error{
     border-color: red;
 }
-#form-save-player button{margin-top: 42px;}
+#form-save-player button{margin-top: 25px;}
+
+
+/* -----------
+ * EXTRA SCORE
+ * ----------- */
+
+#extra-score-container{
+    display: none;
+    text-align: center;
+    font-family: Passion One;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -290px;
+}
+
+#extra-score-container h3{color: #603699;font-size: 60px;margin: 0;}
+#extra-score-container h4{color:#603699;font-size: 34px;font-weight: bold;width: 626px;margin: 30px auto;font-family: Lato;}
+
+.extra-santa {
+    position: absolute;
+    top: 111px;
+    right: 3%;
+}
+.extra-points {
+    color: #5CA26C;
+    width: 377px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#extra-text{
+    display: inline-block;
+    line-height: 47px;
+    letter-spacing: -1px;
+    padding-top: 11px;
+    margin-right: 0px;
+    width: 232px;
+    font-size: 70px;
+    float: right;
+    text-align: left;
+}
+#extra-number{
+    display: inline-block;
+    font-size: 136px;
+    position: relative;
+    line-height: 124px;
+    float: left;
+}
+
+#no-share{
+    color: #4A66A0;
+    font-size: 25px;
+    font-family: Lato;
+    margin: 10px 0;
+    display: block;
+}
 
 /* -----------
  * MAIN UI
@@ -761,12 +866,13 @@ img{max-width: 100%}
  * RANKING
  * ----------- */
 
-#ranking-screen{background: #FFDB00; position: absolute; top: 0;bottom: 0;width: 100%;z-index: 100;display: none;}
+#ranking-screen{background: url(../img/ranking-bg.gif)no-repeat #FFDB00; background-size: cover; position: absolute; top: 0;bottom: 0;width: 100%;z-index: 100;display: none;}
 
-#ranking-container{position: absolute;top: 50%;width: 100%;margin-top: -336px;}
+#ranking-container{position: absolute;top: 50%;width: 100%;margin-top: -395px;}
 #ranking-container .container{
     position: relative;
     /* padding: 0 80px; */
+    width: 1000px;
 }
 
 
@@ -846,9 +952,14 @@ img{max-width: 100%}
     background-color: #856097;
 }
 
-.ranking-table tbody tr:hover , .ranking-table tbody tr.active{
+.ranking-table tbody tr.active{
     background: #FFDB00;
 }
+
+.ranking-table tbody tr:hover{
+    background: #DA4243;
+}
+
 .ranking-table tbody tr:hover .ranking-value, .ranking-table tbody tr.active .ranking-value{
     background: #4A8455;
 }
@@ -900,7 +1011,35 @@ img{max-width: 100%}
     text-align: center;
 }
 
+.ranking-text{
+    padding: 15px 0;
+}
+.ranking-text h5{
+    font-size: 14px;
+    font-family: Lato;
+    font-weight: bold;
+    text-align: center;
+}
+
 .btn-fb{ background: #4A66A0;border-bottom: 3px solid #364C77;margin-top: 20px;display: inline-block;}
+
+.btn-fb:hover{background: #6084D0;}
+
+
+@media(max-height:768px){
+    .ranking-body{
+        height: 200px;
+    }
+    #ranking-container{
+        position: relative;
+        top: 0;
+        margin-top: 0;
+    }
+    .ranking-share{
+
+    }
+}
+
 
 /* -----------
  * FACEBOOK SHARE

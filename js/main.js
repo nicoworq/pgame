@@ -3,7 +3,7 @@
 function pascalGame() {
 
     var _stop = false;
-    var _sec = 40;
+    var _sec = 1;
     var _min = 0;
     var _ttime = 0;
 
@@ -13,12 +13,19 @@ function pascalGame() {
     var count = 0;
     var found = 0;
     var score = 0;
-    var matchScore = 50;
+
+
+    var totalScore = 0;
+
+    var matchScore = 500;
+
+    var timeScore = 50;
+
+    var tryScore = -20;
 
     var idParticipante;
 
     function initialize() {
-
 
         window.addEventListener("hashchange", hashChanged);
 
@@ -29,7 +36,7 @@ function pascalGame() {
             $('#btn-start-game').click(startGame);
             $(".card img").hide();
             $(".card").click(showCard);
-            //randomizeCards();
+            randomizeCards();
 
             $('input[type=text]').keydown(function () {
                 $(this).removeClass('input-error');
@@ -46,9 +53,37 @@ function pascalGame() {
             });
 
             $('.btn-fb').click(function () {
-                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalonline.com.ar/', 'title', 'width=500,height=600');
+                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalonline.com.ar/', 'Compartir en Facebook', 'width=500,height=300');
 
             });
+
+            $('#share-extra').click(function () {
+                window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.pascalgames.com.ar/', 'Compartir en Facebook', 'width=500,height=300');                
+
+            });
+            $('#share-extra').click(function () {
+                playerSharedGame($(this).attr('data-code'));
+            });
+
+
+
+            $('#no-share').click(function (e) {
+                e.preventDefault();
+                showRankingScreen();
+            });
+
+            $.parallaxify();
+
+
+            $(window).on('resize', function () {
+                $.parallaxify('destroy');
+                $.parallaxify();
+            });
+
+            window.odometerOptions = {
+                format: 'd'
+            };
+
         });
 
 
@@ -60,8 +95,6 @@ function pascalGame() {
 
     function hashChanged() {
         console.log(location.hash);
-
-
 
         /*
          
@@ -79,29 +112,18 @@ function pascalGame() {
         var children = $(".card");
 
         var array_img = [];
-        var i;
 
-
-        $(".card").each(function (i, obj) {
+        $(children).each(function (i, obj) {
             array_img.push($(obj).find('img').attr("src"));
         });
 
-
-        var child = $(".card").first();
-        var z;
-
-        for (z = 0; z < children.length; z++) {
+        $(children).each(function (i, obj) {
             var randIndex = nextRand(0, array_img.length - 1);
-
-            // set new image
-            $("#" + child.attr("id") + " img").attr("src", array_img[randIndex]);
+            $(obj).find('img').attr("src", array_img[randIndex]);
             array_img.splice(randIndex, 1);
+        });
 
-            child = child.next();
-        }
     }
-
-
 
 
     /*
@@ -169,7 +191,7 @@ function pascalGame() {
 
 
 
-            if (found === 8) {
+            if (found === 1) {
                 allMatchesFound();
             }
         }
@@ -210,6 +232,11 @@ function pascalGame() {
         });
     }
 
+    function showExtraScoreScreen() {
+        $('#score-container').fadeOut(function () {
+            $('#extra-score-container').fadeIn();
+        });
+    }
 
     function showScoresScreen() {
 
@@ -221,7 +248,7 @@ function pascalGame() {
         scoreScreenHtml.find('#score-time .score-item-value').html(_sec);
         scoreScreenHtml.find('#score-tries .score-item-value').html(count);
         scoreScreenHtml.find('#score-matches .score-item-value').html(found);
-        scoreScreenHtml.find('#total-score-value b').html(score);
+
 
 
         $('#game-container').css('background', 'none');
@@ -234,6 +261,12 @@ function pascalGame() {
                 scoreScreenHtml.removeClass('animated bounceInDown');
                 animateSuperSanta();
             }, 1200);
+
+
+            setTimeout(function () {
+                scoreScreenHtml.find('#total-score-value b').html(calculateTotalScore());
+            }, 600);
+
         });
 
 
@@ -241,25 +274,50 @@ function pascalGame() {
 
     }
 
+    function calculateTotalScore() {
+
+        if (score <= 0) {
+            totalScore = 0;
+            return totalScore;
+        }
+
+        totalScore = totalScore + score;
+
+        totalScore = totalScore + (tryScore * count);
+
+        totalScore = totalScore + (timeScore * _sec);
+
+        return totalScore;
+    }
 
     function showRankingScreen() {
-        
+
         window.location.hash = 'ranking';
-        
+
         var rankingHtml = $('#ranking-screen');
 
         rankingHtml.css('display', 'block').addClass('animated bounceInUp');
 
-
         getRankings();
 
-
         setTimeout(function () {
-            rankingHtml.removeClass('animated bounceInUp')
+            rankingHtml.removeClass('animated bounceInUp');
         }, 1200);
 
+        setTimeout(function () {
+            scrollToParticipantScore();
+        }, 1300)
+    }
+
+
+    function scrollToParticipantScore() {
+
+        $('.ranking-body').animate({
+            scrollTop: $(".ranking-body .active").offset().top
+        }, 1000);
 
     }
+
 
     function showSanta8Bit() {
 
@@ -336,7 +394,7 @@ function pascalGame() {
 
         formData.push({
             name: 'score',
-            value: score
+            value: totalScore
         });
         formData.push({
             name: 'matches',
@@ -359,7 +417,7 @@ function pascalGame() {
 
                 idParticipante = json.idParticipante;
 
-                showRankingScreen();
+                showExtraScoreScreen();
 
             } else {
                 swal("Oops...", "Error al enviar tus datos!", "error");
@@ -367,6 +425,15 @@ function pascalGame() {
         });
 
     }
+
+    function playerSharedGame(code) {
+
+        $.post('php/ajaxShare.php', {idParticipante: idParticipante, code: code, totalScore: totalScore}, function () {
+            showRankingScreen();
+        });
+
+    }
+
     /*
      * RANKING
      */
@@ -474,6 +541,8 @@ function pascalGame() {
     function startGame() {
 
         window.location.hash = 'juego';
+
+        $('#reno-bottom , #reno-top').fadeOut();
 
         $('#content-container').fadeOut();
         $('#memo-game').fadeIn();
@@ -603,94 +672,6 @@ function pascalGame() {
 ;
 
 
-pg = new pascalGame();
+var pg = new pascalGame();
 
 
-
-
-
-
-
-
-
-
-
-
-/*
- function LogScore() {
- var username = $("#username").val();
- saveScore(username, count);
- }
- 
- 
- function saveScore(name, time) {
- 
- var url = host + "LogScore.php";
- 
- $.ajax({
- type: "GET",
- url: url, //?playername=kira&timetaken=5'
- data: "playername=" + name + "&clicks=" + time,
- async: false,
- success: function () {
- //reload page to start a new game
- document.location.reload();
- },
- error: function () {
- console.log("could not be logged");
- }
- 
- });
- }
- */
-
-
-/**
- * Retrieve top 10 scores from server
- 
- function getTopTenScores() {
- var url = host + "TopPlayers.php?type=" + gameType;
- getPlayerData(url);
- }
- */
-
-/**
- * Retrieve all scores from server
- 
- function getLeaderBoard() {
- var url = host + "LeaderBoard.php?type=" + gameType;
- getPlayerData(url);
- }
- */
-
-
-/**
- * The following function retrieve player data and append it to the table view
- * @param url
- 
- function getPlayerData(url) {
- console.log(url);
- $.getJSON(url, function (data) {
- if (data) { //check if any data is returned
- $.each(data, function (key, val) {
- $("#tbBody").append('<tr>' +
- '<td><i>' + val.name + '</i></td>' +
- '<td>' + (val.clicks) + '</td>' +
- '</tr>');
- });
- }
- else {
- console.log("Aw Snap! : Something went wrong loading the articles");
- }
- 
- });
- }
- */
-/**
- * the following function gets the direct url for the link
- 
- function getURL() {
- var local = document.location;
- return local.protocol + "//" + local.host;
- }
- */

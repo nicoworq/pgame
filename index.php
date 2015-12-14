@@ -32,7 +32,7 @@ $pg = new Pascal();
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Navidad en Pascal" />
         <meta property="og:description"   content="Demostrale a Papá Noel tu buena memoria , jugá y ganá premios increíbles" />
-        <meta property="og:image"         content="" />
+        <meta property="og:image"         content="http://www.your-domain.com/img/share.jpg" />
 
     </head>
     <body>
@@ -45,11 +45,11 @@ $pg = new Pascal();
                 <img src="img/loader.png" alt="Loading"/>
             </div>
 
-            <div class="reno-bg" id="reno-izq">
+            <div class="reno-bg" id="reno-izq" data-parallaxify-range-x="0" data-parallaxify-range-y="50">
                 <img src="img/reno_back.svg" alt="Reno" />
 
             </div>
-            <div class="reno-bg" id="reno-der">
+            <div class="reno-bg" id="reno-der" data-parallaxify-range-x="0" data-parallaxify-range-y="30">
                 <img src="img/reno.svg" alt="Reno" />
             </div>
 
@@ -57,10 +57,10 @@ $pg = new Pascal();
                 <img src="img/reno_middle.svg" alt="Reno"/>
             </div>
 
-            <div class="reno-bg" id="reno-bottom">
+            <div class="reno-bg" id="reno-bottom" data-parallaxify-range-x="100" data-parallaxify-range-y="0">
                 <img src="img/reno_middle.svg" alt="Reno"/>
             </div>
-            <div class="reno-bg" id="reno-top">
+            <div class="reno-bg" id="reno-top" data-parallaxify-range-x="110" data-parallaxify-range-y="0">
                 <img src="img/reno_middle.svg" alt="Reno"/>
             </div>
 
@@ -74,18 +74,18 @@ $pg = new Pascal();
 
                         <!-- Objetos -->
 
-                        <div id="papa-noel-intro" >
+                        <div id="papa-noel-intro" data-parallaxify-range-x="100" data-parallaxify-range-y="50">
                             <img src="img/santa_1.svg" alt="Papa Noel"/>
                         </div>
-                        <div id="papa-noel-intro-rastrillo">
+                        <div id="papa-noel-intro-rastrillo" data-parallaxify-range-x="50" data-parallaxify-range-y="25">
                             <img src="img/rastrillos.svg" alt="Rastrillo"/>
                         </div>
 
 
-                        <div id="arbol-grande" class="arbol-bg">
+                        <div id="arbol-grande" class="arbol-bg" data-parallaxify-range-x="70" data-parallaxify-range-y="30">
                             <img src="img/arbol2.svg" alt="Arbol"/>
                         </div>
-                        <div id="arbol-chico" class="arbol-bg">
+                        <div id="arbol-chico" class="arbol-bg" data-parallaxify-range-x="80" data-parallaxify-range-y="20">
                             <img src="img/arbol.svg" alt="Arbol"/>
                         </div>
 
@@ -238,6 +238,34 @@ $pg = new Pascal();
 
 
             <div id="score-screen">
+
+                <div id="extra-score-container">
+                    <div class="container">
+                        <div class="extra-santa">
+                            <img src="img/extra-points.png" alt="Extra Santa"/>
+                        </div>
+                        <h3>¡BONUS TRACK!</h3>
+
+                        <div class="extra-points">
+                            <span id="extra-number">50</span>
+                            <span id="extra-text">
+                                PUNTOS<br/>
+                                EXTRA
+                            </span>
+                        </div>
+
+                        <h4>¡Compartiendo tu resultado en facebook
+                            sumás 50pts y más chances de ganar!</h4>
+                        <button id="share-extra" class="btn-primary btn-fb" data-code="<?php echo $tk->generateFormToken('code-fb'); ?>"
+                                data-href="http://pascalgames.com.ar">
+                            <img src="img/fb.svg"/> <span>Compartir</span>
+                        </button>
+                        <a href="#" id="no-share">No, gracias</a>
+
+                    </div>
+
+                </div>
+
                 <div id="score-container">
                     <div class="container">
 
@@ -248,7 +276,7 @@ $pg = new Pascal();
                         <div id="total-score">
 
                             <span id="total-score-text">¡Estupendo! <br/> Sumaste</span>
-                            <span id="total-score-value"><b>350</b>                        
+                            <span id="total-score-value"><b class="odometer">0</b>                        
                                 <span id="total-score-unit">Pts</span>
                             </span>
 
@@ -323,7 +351,7 @@ $pg = new Pascal();
                                             <td>Tiempo<small>(Seg)</small></td>
                                             <td>Intentos</td>
                                             <td>Aciertos</td>
-                                            <td>Puntaje</td>
+                                            <td style="padding-right: 30px">Puntaje</td>
                                         </tr>
                                     </thead>
                                 </table>
@@ -332,11 +360,6 @@ $pg = new Pascal();
                                 <table>
 
                                     <tbody>
-
-
-
-
-
                                     </tbody>
                                 </table>
                             </div>
@@ -349,13 +372,18 @@ $pg = new Pascal();
 
 
                             <button class="btn-primary btn-fb" 
-                                 data-href="http://www.your-domain.com/your-page.html">
+                                    data-href="http://www.your-domain.com/your-page.html">
                                 <img src="img/fb.svg"/> <span>Compartir</span>
                             </button>
 
 
 
 
+                        </div>
+
+                        <div class="ranking-text">
+                            <h5>El día 10/12/15 a las 10:00HS anunciaremos a los ganadores. Con tu puntaje ya estás participando de<br/>
+                                los sorteos navideños de Pascal ¡Visitanos la semana que viene y jugá de nuevo por más premios! </h5>
                         </div>
 
                     </div>
