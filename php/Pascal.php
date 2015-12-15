@@ -109,7 +109,7 @@ class Pascal {
 
         $mail->From = 'formulario@worq.com.ar';
         $mail->FromName = 'Navidad en Pascal';
-        $mail->addAddress('nicolas@worq.com.ar', 'Nicolas');  // Add a recipient    
+        //$mail->addAddress('nicolas@worq.com.ar', 'Nicolas');  // Add a recipient    
         $mail->addAddress($emailTo, 'Participante');  // Add a recipient    
 
         $mail->addReplyTo('contacto@pascalonline.com.ar', 'Pascal');
