@@ -14,7 +14,7 @@ body{
     overflow: hidden;
     /* min-height: 100vh; */
     position: absolute;
-    min-height: 655px;
+    min-height: 651px;
     min-width: 1350px;
 }
 
@@ -1074,6 +1074,10 @@ img{max-width: 100%}
 
     .ranking-text{
         padding: 0px 0;
+    }
+    .ranking-share .btn-fb{
+        padding: 7px 22px;
+        font-size: 26px;
     }
 }
 
