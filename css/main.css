@@ -436,7 +436,7 @@ img{max-width: 100%}
 }
 
 .card.card-found:before {
-    content:  "\2713 ";
+    /* content:  "\2713 "; */
     position: absolute;
     color: green;
     font-size: 37px;
@@ -922,6 +922,7 @@ img{max-width: 100%}
 }
 
 .ranking-title{
+    display: block;
     text-align: center;
     width: 321px;
     margin: 0 auto;

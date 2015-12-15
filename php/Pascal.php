@@ -116,7 +116,7 @@ class Pascal {
 
         $mail->isHTML(true);                                  // Set email format to HTML
 
-        $mail->Subject = 'Participaste !';
+        $mail->Subject = 'Gracias por participar!!';
         $mail->Body = $cuerpo_email;
 
         if (!$mail->send()) {

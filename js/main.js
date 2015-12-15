@@ -102,7 +102,12 @@ function pascalGame() {
             };
 
         });
-
+        
+        
+        if (window.location.hash === '#ranking') {
+            $('#reno-bottom , #reno-top, #reno-izq, #reno-der, #reno-middle-der').fadeOut();
+            showRankingScreen();
+        }
 
 
     }
@@ -292,7 +297,7 @@ function pascalGame() {
 
         totalScore = totalScore + score;
 
-        totalScore = totalScore + (tryScore * count);
+        //totalScore = totalScore + (tryScore * count);
 
         totalScore = totalScore + (timeScore * _sec);
 
@@ -301,7 +306,10 @@ function pascalGame() {
 
     function showRankingScreen() {
 
-        window.location.hash = 'ranking';
+        if (window.location.hash !== '#ranking') {
+            window.location.hash = '#ranking';
+        }
+
 
         var rankingHtml = $('#ranking-screen');
 
@@ -446,7 +454,7 @@ function pascalGame() {
      * RANKING
      */
 
-    getRankings = function () {
+     function getRankings() {
 
         $.post('php/ajaxRanking.php', {code: $('#ranking-container').attr('data-ranking-code')}, function (data) {
 

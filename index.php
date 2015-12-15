@@ -328,19 +328,22 @@ $pg = new Pascal();
                     <div class="container">
 
                         <div id="papa-noel-ranking" class="pulse">
-                            <img src="img/super_santa_small.svg" alt="Papa Noel"/>
+                            <a href="http://pascalgames.com.ar">
+                                <img src="img/super_santa_small.svg" alt="Papa Noel"/>
+                            </a>
+                            
                         </div>
 
                         <div id="arboles-ranking">
                             <img src="img/arbol_doble.svg"/>
                         </div>
 
-                        <div class="ranking-title">
+                        <a href="http://pascalgames.com.ar" class="ranking-title">
                             <div class="logo-pascal">
                                 <img src="img/pascal-logo.png" alt="Pascal"/>
                             </div>
                             <h3>Ranking</h3>
-                        </div>
+                        </a>
 
                         <div class="ranking-table">
 
@@ -384,7 +387,7 @@ $pg = new Pascal();
                         </div>
 
                         <div class="ranking-text">
-                            <h5>El día 10/12/15 a las 10:00HS anunciaremos a los ganadores. Con tu puntaje ya estás participando de<br/>
+                            <h5>El día 18/12/15 anunciaremos a los ganadores. Con tu puntaje ya estás participando de<br/>
                                 los sorteos navideños de Pascal ¡Visitanos la semana que viene y jugá de nuevo por más premios! </h5>
                         </div>
 
