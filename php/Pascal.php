@@ -71,7 +71,7 @@ class Pascal {
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
 
-        $sql = 'SELECT * , @rownumber:= @rownumber+ 1 as "pos" FROM pascal_game.participantes order by puntaje desc , tiempo desc ;';
+        $sql = 'SELECT id,coincidencias,intentos,nombre,puntaje,tiempo, @rownumber:= @rownumber+ 1 as "pos" FROM pascal_game.participantes order by puntaje desc , tiempo desc ;';
         //$sql = 'SELECT * , count(*) FROM pascal_game.participantes order by puntaje desc , tiempo asc ;';
 
         $rows = array();
