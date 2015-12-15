@@ -11,6 +11,12 @@ if (isset($_POST['sex']) && $_POST['sex'] !== '') {
     die();
 }
 
+//Descarto por ser un bot!
+if (!isset($_POST['email']) && $_POST['email'] === '' || !isset($_POST['name']) && $_POST['name'] === '') {
+    echo json_encode(array('enviado' => TRUE, 'trucho' => TRUE));
+    die();
+}
+
 
 $tk = new TokenCSRF();
 
@@ -40,7 +46,12 @@ $pascal = new Pascal();
 $insertedID = $pascal->insertParticipant($nombre, $email, $dni, $puntaje, $telefono, $tiempo, $coincidencias, $intentos);
 
 if ($insertedID !== FALSE) {
-    echo json_encode(array('enviado' => TRUE, 'idParticipante' => $insertedID));
+
+    if ($pascal->sendEmail($email)) {
+        echo json_encode(array('enviado' => TRUE, 'idParticipante' => $insertedID));
+    } else {
+        echo json_encode(array('enviado' => FALSE, 'MAILFAIL' => TRUE));
+    }
 } else {
     echo json_encode(array('enviado' => FALSE, 'DBFAIL' => TRUE));
 }

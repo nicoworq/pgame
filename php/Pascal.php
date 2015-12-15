@@ -52,9 +52,9 @@ class Pascal {
     }
 
     public function participantShared($id, $score) {
-        
+
         $score = intval($score) + 50;
-        
+
         $dbh = $this->connect();
 
         $stmt = $dbh->prepare("UPDATE participantes SET compartio = 1 , puntaje=:score WHERE id = :id ;");
@@ -87,6 +87,42 @@ class Pascal {
 
 
         return $rows;
+    }
+
+    function sendEmail($emailTo) {
+        header('Content-type: application/json');
+
+
+        include_once 'class.phpmailer.php';
+        
+        include_once './templateEmail.php';
+        
+        $mail = new PHPMailer;
+        $mail->IsSMTP();                           // tell the class to use SMTP
+
+        $mail->SMTPAuth = true;                  // enable SMTP authentication  
+        $mail->SMTPSecure = "tls";
+        $mail->Port = 587;                    // set the SMTP server port
+        $mail->Host = "smtp.gmail.com"; // SMTP server
+        $mail->Username = "formulario@worq.com.ar";     // SMTP server username
+        $mail->Password = "f0rmulario_de_worq_con_q";            // SMTP server password
+
+        $mail->From = 'formulario@worq.com.ar';
+        $mail->FromName = 'Navidad en Pascal';
+        $mail->addAddress('nicolas@worq.com.ar', 'Nicolas');  // Add a recipient    
+        $mail->addAddress($emailTo, 'Participante');  // Add a recipient    
+
+        $mail->addReplyTo('contacto@pascalonline.com.ar', 'Pascal');
+
+        $mail->isHTML(true);                                  // Set email format to HTML
+
+        $mail->Subject = 'Participaste !';
+        $mail->Body = $cuerpo_email;
+
+        if (!$mail->send()) {
+            return FALSE;
+        }
+        return TRUE;
     }
 
 }
