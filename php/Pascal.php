@@ -15,7 +15,7 @@ class Pascal {
 
     private function connect() {
 
-        include_once './connection.php';
+        include_once 'connection.php';
 
         try {
             $dbh = new PDO("mysql:host={$hostname};dbname={$dbName}", $username, $password);
@@ -74,6 +74,29 @@ class Pascal {
         $sql = 'SELECT id,coincidencias,intentos,nombre,puntaje,tiempo, @rownumber:= @rownumber+ 1 as "pos" FROM pascal_game.participantes order by puntaje desc , tiempo desc ;';
         //$sql = 'SELECT * , count(*) FROM pascal_game.participantes order by puntaje desc , tiempo asc ;';
 
+        $rows = array();
+        try {
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute();
+
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+            echo $ex->getLine();
+        }
+
+
+        return $rows;
+    }
+    public function getRankingBackend() {
+
+        $dbh = $this->connect();
+        $sql = 'SET @rownumber = 0;';
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+
+        $sql = 'SELECT *, @rownumber:= @rownumber+ 1 as "pos" FROM pascal_game.participantes order by puntaje desc , tiempo desc ;';
+        
         $rows = array();
         try {
             $stmt = $dbh->prepare($sql);
