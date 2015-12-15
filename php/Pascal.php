@@ -15,7 +15,7 @@ class Pascal {
 
     private function connect() {
 
-        include_once 'connection.php';
+        include 'connection.php';
 
         try {
             $dbh = new PDO("mysql:host={$hostname};dbname={$dbName}", $username, $password);
@@ -88,6 +88,7 @@ class Pascal {
 
         return $rows;
     }
+
     public function getRankingBackend() {
 
         $dbh = $this->connect();
@@ -96,7 +97,7 @@ class Pascal {
         $stmt->execute();
 
         $sql = 'SELECT *, @rownumber:= @rownumber+ 1 as "pos" FROM pascal_game.participantes order by puntaje desc , tiempo desc ;';
-        
+
         $rows = array();
         try {
             $stmt = $dbh->prepare($sql);
@@ -112,14 +113,34 @@ class Pascal {
         return $rows;
     }
 
+    public function getCount() {
+        $dbh = $this->connect();
+     
+        $sql = 'SELECT count(id) as "count" FROM pascal_game.participantes ;';
+
+        $rows = array();
+        try {
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute();
+
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+            echo $ex->getLine();
+        }
+
+
+        return $rows[0]['count'];
+    }
+
     function sendEmail($emailTo) {
         header('Content-type: application/json');
 
 
         include_once 'class.phpmailer.php';
-        
+
         include_once './templateEmail.php';
-        
+
         $mail = new PHPMailer;
         $mail->IsSMTP();                           // tell the class to use SMTP
 

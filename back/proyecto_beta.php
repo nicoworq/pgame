@@ -56,7 +56,7 @@ $participantes = $pg->getRankingBackend();
         <div class="jumbotron">
             <div class="container">
                 <h1>Usuarios participantes</h1>
-
+                <p>Cantidad: <?php echo $pg->getCount();?></p>
             </div>
         </div>
 
@@ -66,7 +66,7 @@ $participantes = $pg->getRankingBackend();
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <td>ID</td>
+                        <td>Posición</td>
                         <td>Nombre</td>
                         <td>Email</td>
                         <td>Puntaje</td>
@@ -80,7 +80,7 @@ $participantes = $pg->getRankingBackend();
                     foreach ($participantes as $participante) {
                         ?>
                         <tr>
-                            <td><?php echo $participante['id'] ?></td>
+                            <td><?php echo $participante['pos'] ?></td>
                             <td><?php echo $participante['nombre'] ?></td>
                             <td><?php echo $participante['email'] ?></td>
                             <td><?php echo $participante['puntaje'] ?></td>
