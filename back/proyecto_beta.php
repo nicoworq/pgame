@@ -73,6 +73,8 @@ $participantes = $pg->getRankingBackend();
                         <td>Compartio</td>
                         <td>Telefono</td>
                         <td>DNI</td>
+                        <td>ID</td>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -87,6 +89,7 @@ $participantes = $pg->getRankingBackend();
                             <td><?php echo $participante['compartio'] ?></td>
                             <td><?php echo $participante['telefono'] ?></td>
                             <td><?php echo $participante['dni'] ?></td>
+                            <td><?php echo $participante['id'] ?></td>
                         </tr>
                         <?php
                     }
