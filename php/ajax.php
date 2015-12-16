@@ -39,19 +39,19 @@ $tiempo = intval($_POST['time']);
 $coincidencias = intval($_POST['matches']);
 $intentos = intval($_POST['tries']);
 
-
-
 $pascal = new Pascal();
 
 $insertedID = $pascal->insertParticipant($nombre, $email, $dni, $puntaje, $telefono, $tiempo, $coincidencias, $intentos);
 
-if ($insertedID !== FALSE) {
+if ($insertedID[0]) {
 
     if ($pascal->sendEmail($email)) {
         echo json_encode(array('enviado' => TRUE, 'idParticipante' => $insertedID));
     } else {
         echo json_encode(array('enviado' => FALSE, 'MAILFAIL' => TRUE));
     }
+} elseif ($insertedID[1] === 'existente') {
+    echo json_encode(array('enviado' => FALSE, 'existente' => TRUE));
 } else {
     echo json_encode(array('enviado' => FALSE, 'DBFAIL' => TRUE));
 }

@@ -2,7 +2,22 @@
 
 body{
     background: #FFDB00;
+}
 
+#no-mobile{display: none;position: absolute;text-align: center;left: 0;z-index: 1000000;background: rgba(0, 0, 0, 0.6);top: 0;bottom: 0;color: white;right: 0;}
+#no-mobile h1{font-family: 'Passion One'}
+#no-mobile p{font-family: 'Lato'}
+
+#no-mobile-text{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -120px;
+    padding: 0 20px;
+}
+
+#no-mobile .btn-primary{
+    margin-top: 20px;
 }
 
 #game-container{
@@ -17,7 +32,15 @@ body{
     min-height: 651px;
     min-width: 1350px;
 }
+@media(max-width:1350px){
+    #no-mobile{display: block}
 
+    #game-container{min-width: 0px;}
+}
+@media(max-height:651px){
+    #no-mobile{display: block}
+    #game-container{min-height:0px;}
+}
 
 #main-loader{
     position: fixed;

@@ -48,6 +48,11 @@ function pascalGame() {
 
 
         $(document).ready(function () {
+
+            $('#no-mobile .btn-primary').click(function () {
+                $('#no-mobile').fadeOut();
+            })
+
             $('#btn-comenzar').click(showInstructionsScreen);
 
             $('#btn-start-game').click(startGame);
@@ -102,8 +107,8 @@ function pascalGame() {
             };
 
         });
-        
-        
+
+
         if (window.location.hash === '#ranking') {
             $('#reno-bottom , #reno-top, #reno-izq, #reno-der, #reno-middle-der').fadeOut();
             showRankingScreen();
@@ -113,6 +118,28 @@ function pascalGame() {
     }
 
     initialize();
+
+    initializeSound();
+
+    function initializeSound() {
+
+        ion.sound({
+            sounds: [
+                {
+                    name: "boton_click",
+                    preload: true
+                },
+                {name: 'match', preload: true},
+                {name: 'no_match', preload: true},
+                {name: 'go', preload: true},
+                {name: 'count', preload: true},
+            ],
+            volume: 0.5,
+            path: "sound/",
+            preload: true
+        });
+    }
+
 
 
     function hashChanged() {
@@ -174,9 +201,11 @@ function pascalGame() {
                         imgopened = "";
                     });
 
+                    ion.sound.play("no_match");
                 } else {
                     // found
 
+                    ion.sound.play("match");
 
                     cardFound($("#" + id));
                     cardFound($("#" + boxopened));
@@ -238,6 +267,8 @@ function pascalGame() {
 
 
     function showInstructionsScreen() {
+
+        ion.sound.play("boton_click");
 
         window.location.hash = 'instrucciones';
 
@@ -376,6 +407,9 @@ function pascalGame() {
      */
 
     function formSubmit() {
+
+        ion.sound.play("boton_click");
+
         var form = $('#form-save-player');
 
         var formOK = true;
@@ -430,13 +464,18 @@ function pascalGame() {
         $.post('php/ajax.php', $.param(formData), function (json) {
             $('.ajaxing').fadeOut();
             if (json.enviado) {
-
                 idParticipante = json.idParticipante;
-
                 showExtraScoreScreen();
 
             } else {
-                swal("Oops...", "Error al enviar tus datos!", "error");
+
+                if (!json.enviado && json.existente) {
+                    swal("Oops...", "Parece que ya participaste. Intenta de nuevo la semana que viene. ", "error");
+                } else {
+                    swal("Oops...", "Error al enviar tus datos!", "error");
+                }
+
+
             }
         });
 
@@ -454,7 +493,7 @@ function pascalGame() {
      * RANKING
      */
 
-     function getRankings() {
+    function getRankings() {
 
         $.post('php/ajaxRanking.php', {code: $('#ranking-container').attr('data-ranking-code')}, function (data) {
 
@@ -466,7 +505,8 @@ function pascalGame() {
 
         });
 
-    };
+    }
+    ;
 
     function showRankingValues(rankings) {
 
@@ -554,7 +594,7 @@ function pascalGame() {
 
 
     function startGame() {
-
+        ion.sound.play("boton_click");
         window.location.hash = 'juego';
 
         $('#reno-bottom , #reno-top, #reno-izq, #reno-der, #reno-middle-der').fadeOut();
@@ -608,17 +648,20 @@ function pascalGame() {
         var setGo = $('#set-go');
 
 
-        var numberDisplayTime = 500;
+        var numberDisplayTime = 800;
         var fadeOutTime = 500;
 
         var setGoDisplayTime = 1500;
 
         ready1.css('display', 'block').addClass('animated bounceIn');
+        ion.sound.play("count");
 
         window.setTimeout(function () {
             ready1.fadeOut(fadeOutTime, function () {
 
                 ready2.css('display', 'block').addClass('animated bounceIn');
+                ion.sound.stop("count");
+                ion.sound.play("count");
 
                 window.setTimeout(function () {
 
@@ -626,12 +669,15 @@ function pascalGame() {
 
                         ready3.css('display', 'block').addClass('animated bounceIn');
 
+                        ion.sound.stop("count");
+                        ion.sound.play("count");
 
                         window.setTimeout(function () {
 
                             ready3.fadeOut(fadeOutTime, function () {
 
                                 setGo.css('display', 'block').addClass('animated zoomIn');
+                                ion.sound.play("go");
 
                                 window.setTimeout(function () {
 

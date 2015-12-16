@@ -17,7 +17,7 @@ $pg = new Pascal();
         <title>Navidad en Pascal</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-              
+
         <link rel="shortcut icon" href="http://www.pascalgames.com.ar/favicon.ico" />
         <link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -39,7 +39,15 @@ $pg = new Pascal();
         <div id="main-loader">
             <img src="img/loader.png"/>
         </div>
+        <div id="no-mobile">
+            <div id="no-mobile-text">
+                <h1>Lo Sentimos</h1>
+                <p>El juego no esta preparado para ser disfrutado 100% en el dispositivo que utilizas.<br/>Sin embargo, puedes continuar bajo tu propio riesgo</p>
+                
+                <button class="btn-primary">Continuar</button>
+            </div>
 
+        </div>
 
         <div id="game-container">
 
@@ -331,7 +339,7 @@ $pg = new Pascal();
                             <a href="http://pascalgames.com.ar">
                                 <img src="img/super_santa_small.svg" alt="Papa Noel"/>
                             </a>
-                            
+
                         </div>
 
                         <div id="arboles-ranking">

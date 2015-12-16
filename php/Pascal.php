@@ -33,6 +33,19 @@ class Pascal {
 
         $dbh = $this->connect();
 
+        $stmt = $dbh->prepare("SELECT id FROM participantes WHERE dni = :dni OR email = :email;");
+
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':dni', $dni, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($rows) > 0) {
+            return array(false, 'existente');
+        }
+
         $stmt = $dbh->prepare("INSERT INTO participantes(nombre, email, dni,puntaje,telefono,tiempo,coincidencias,intentos) VALUES (:nombre, :email, :dni, :puntaje, :telefono, :tiempo, :coincidencias, :intentos)");
 
         $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
@@ -45,9 +58,9 @@ class Pascal {
         $stmt->bindParam(':intentos', $intentos, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
-            return $dbh->lastInsertId();
+            return array(TRUE, $dbh->lastInsertId());
         } else {
-            return false;
+            return array(false, $dbh->errorInfo());
         }
     }
 
@@ -115,7 +128,7 @@ class Pascal {
 
     public function getCount() {
         $dbh = $this->connect();
-     
+
         $sql = 'SELECT count(id) as "count" FROM pascal_game.participantes ;';
 
         $rows = array();
