@@ -29,6 +29,24 @@ class Pascal {
         }
     }
 
+    public function deleteParticipant($idParticipant) {
+
+        include 'connection.php';
+
+        $dbh = $this->connect();
+
+        $stmt = $dbh->prepare("DELETE FROM participantes WHERE id = :id");
+
+
+        $stmt->bindParam(':id', $idParticipant, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
     public function insertParticipant($nombre, $email, $dni, $puntaje, $telefono, $tiempo, $coincidencias, $intentos) {
 
         $dbh = $this->connect();
