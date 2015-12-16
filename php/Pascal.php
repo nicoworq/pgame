@@ -127,7 +127,7 @@ class Pascal {
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
 
-        $sql = 'SELECT *, @rownumber:= @rownumber+ 1 as "pos" FROM pascal_game.participantes order by puntaje desc , tiempo desc ;';
+        $sql = 'SELECT *, @rownumber:= @rownumber+ 1 as "pos" FROM pascal_game.participantes order by email desc ;';
 
         $rows = array();
         try {
