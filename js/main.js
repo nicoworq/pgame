@@ -42,7 +42,20 @@ function pascalGame() {
 
     var idParticipante;
 
+
+    //Sounds
+
+    var backSound;
+    var countSound;
+    var playingSound;
+    var gameOverSound;
+    var goSound;
+    var matchSound;
+    var noMatchSound;
+
     function initialize() {
+
+
 
         window.addEventListener("hashchange", hashChanged);
 
@@ -121,23 +134,53 @@ function pascalGame() {
 
     initializeSound();
 
+
+
     function initializeSound() {
 
-        ion.sound({
-            sounds: [
-                {
-                    name: "boton_click",
-                    preload: true
-                },
-                {name: 'match', preload: true},
-                {name: 'no_match', preload: true},
-                {name: 'go', preload: true},
-                {name: 'count', preload: true},
-            ],
-            volume: 0.5,
-            path: "sound/",
+        backSound = new buzz.sound("sound/back_audio", {
+            formats: ["mp3"],
+            preload: true,
+            loop: true,
+            volume: 0.
+        });
+
+        countSound = new buzz.sound("sound/count", {
+            formats: ["mp3"],
             preload: true
         });
+
+        playingSound = new buzz.sound("sound/playing", {
+            formats: ["mp3"],
+            preload: true
+        });
+
+        gameOverSound = new buzz.sound("sound/game_over", {
+            formats: ["mp3"],
+            preload: true
+        });
+
+        goSound = new buzz.sound("sound/go", {
+            formats: ["mp3"],
+            preload: true
+        });
+
+        matchSound = new buzz.sound("sound/match", {
+            formats: ["mp3"],
+            preload: true
+        });
+        noMatchSound = new buzz.sound("sound/no_match", {
+            formats: ["mp3"],
+            preload: true
+        });
+
+
+        var soundGroup = new buzz.group(backSound, countSound, gameOverSound);
+
+
+        backSound.setVolume(10).fadeTo(20, 1500);
+
+
     }
 
 
@@ -201,11 +244,13 @@ function pascalGame() {
                         imgopened = "";
                     });
 
-                    ion.sound.play("no_match");
+                    noMatchSound.stop();
+                    noMatchSound.play();
                 } else {
                     // found
 
-                    ion.sound.play("match");
+                    matchSound.stop();
+                    matchSound.play();
 
                     cardFound($("#" + id));
                     cardFound($("#" + boxopened));
@@ -268,8 +313,6 @@ function pascalGame() {
 
     function showInstructionsScreen() {
 
-        ion.sound.play("boton_click");
-
         window.location.hash = 'instrucciones';
 
         $('#intro-content1').fadeOut(function () {
@@ -284,6 +327,14 @@ function pascalGame() {
     }
 
     function showScoresScreen() {
+        
+        playingSound.fadeOut(300,function(){
+            playingSound.stop();
+        });
+        
+        gameOverSound.play();
+
+        backSound.setVolume(10).fadeTo(20, 1500);
 
         window.location.hash = 'puntaje';
 
@@ -407,8 +458,6 @@ function pascalGame() {
      */
 
     function formSubmit() {
-
-        ion.sound.play("boton_click");
 
         var form = $('#form-save-player');
 
@@ -594,7 +643,11 @@ function pascalGame() {
 
 
     function startGame() {
-        ion.sound.play("boton_click");
+
+        backSound.setVolume(40).fadeTo(0, 1000, function () {
+            backSound.stop();
+        });
+
         window.location.hash = 'juego';
 
         $('#reno-bottom , #reno-top, #reno-izq, #reno-der, #reno-middle-der').fadeOut();
@@ -654,14 +707,15 @@ function pascalGame() {
         var setGoDisplayTime = 1500;
 
         ready1.css('display', 'block').addClass('animated bounceIn');
-        ion.sound.play("count");
+
+        countSound.play()
 
         window.setTimeout(function () {
             ready1.fadeOut(fadeOutTime, function () {
 
                 ready2.css('display', 'block').addClass('animated bounceIn');
-                ion.sound.stop("count");
-                ion.sound.play("count");
+                countSound.stop();
+                countSound.play()
 
                 window.setTimeout(function () {
 
@@ -669,15 +723,15 @@ function pascalGame() {
 
                         ready3.css('display', 'block').addClass('animated bounceIn');
 
-                        ion.sound.stop("count");
-                        ion.sound.play("count");
+                        countSound.stop();
+                        countSound.play()
 
                         window.setTimeout(function () {
 
                             ready3.fadeOut(fadeOutTime, function () {
 
                                 setGo.css('display', 'block').addClass('animated zoomIn');
-                                ion.sound.play("go");
+                                goSound.play();
 
                                 window.setTimeout(function () {
 
@@ -686,6 +740,9 @@ function pascalGame() {
                                         readyScreen.fadeOut(function () {
 
                                             $('#time span.value').addClass('animated tada');
+
+
+                                            playingSound.setVolume(10).fadeTo(80, 1500);
 
                                             startTimer();
 

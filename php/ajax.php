@@ -46,7 +46,7 @@ $insertedID = $pascal->insertParticipant($nombre, $email, $dni, $puntaje, $telef
 if ($insertedID[0]) {
 
     if ($pascal->sendEmail($email)) {
-        echo json_encode(array('enviado' => TRUE, 'idParticipante' => $insertedID));
+        echo json_encode(array('enviado' => TRUE, 'idParticipante' => $insertedID[1]));
     } else {
         echo json_encode(array('enviado' => FALSE, 'MAILFAIL' => TRUE));
     }
