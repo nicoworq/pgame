@@ -32,7 +32,7 @@ body{
     min-height: 651px;
     min-width: 1350px;
 }
-@media(max-width:1279px){
+@media(max-width:1260px){
     #no-mobile{display: block}
 
     #game-container{min-width: 0px;}
