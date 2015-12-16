@@ -155,7 +155,7 @@ img{max-width: 100%}
 
 
 @media(min-width:1024px){
-    #intro{background-position: 62% 50%;}
+    #intro{background-position: 56% 50%;}
 }
 @media(min-width:1333px){
     #intro{background-position: 55% 50%;}
