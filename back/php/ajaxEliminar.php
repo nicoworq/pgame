@@ -7,7 +7,7 @@ $pg = new Pascal();
 
 $idParticipant = intval($_POST['idParticipante']);
 
-
+/*
 
 header('Content-type: application/json');
 

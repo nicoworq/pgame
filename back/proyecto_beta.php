@@ -74,7 +74,7 @@ $participantes = $pg->getRankingBackend();
                         <td>Telefono</td>
                         <td>DNI</td>
                         <td>ID</td>
-                        <td>Accion</td>
+                        
                         
                     </tr>
                 </thead>
@@ -91,7 +91,7 @@ $participantes = $pg->getRankingBackend();
                             <td><?php echo $participante['telefono'] ?></td>
                             <td><?php echo $participante['dni'] ?></td>
                             <td><?php echo $participante['id'] ?></td>
-                            <td><a href="#" onclick="eliminarParticipante(<?php echo $participante['id'] ?>)">X</a></td>
+                            
                         </tr>
                         <?php
                     }
