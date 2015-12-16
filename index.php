@@ -360,11 +360,11 @@ $pg = new Pascal();
                                     <thead>
                                         <tr>
                                             <td>Puesto</td>
-                                            <td>Nombre</td>
+                                            <td style="padding-left: 25px;">Nombre</td>
                                             <td>Tiempo<small>(Seg)</small></td>
                                             <td>Intentos</td>
                                             <td>Aciertos</td>
-                                            <td style="padding-right: 30px">Puntaje</td>
+                                            <td style="padding-right: 22px;    padding-left: 4px;">Puntaje</td>
                                         </tr>
                                     </thead>
                                 </table>

@@ -561,13 +561,13 @@ function pascalGame() {
 
         $.each(rankings, function (i, ranking) {
 
-            var pos = '<td><div class="ranking-position">' + ranking.pos + '</div> <td>'
-            var nombre = '<td><div class="ranking-value">' + ranking.nombre + '</div> <td>';
-            var tiempo = '<td><div class="ranking-value">' + ranking.tiempo + '</div> <td>';
-            var coincidencias = '<td><div class="ranking-value">' + ranking.coincidencias + '/8</div> <td>';
-            var intentos = '<td><div class="ranking-value">' + ranking.intentos + '</div> <td>';
+            var pos = '<td class="position-td"><div class="ranking-position">' + ranking.pos + '</div> </td>'
+            var nombre = '<td class="name-td"><div class="ranking-value">' + ranking.nombre + '</div> </td>';
+            var tiempo = '<td class="tiempo-td"><div class="ranking-value">' + ranking.tiempo + '</div> <td>';
+            var coincidencias = '<td class="match-td"><div class="ranking-value">' + ranking.coincidencias + '/8</div> </td>';
+            var intentos = '<td><div class="ranking-value">' + ranking.intentos + '</div> </td>';
 
-            var puntaje = '<td><div class="ranking-value">' + ranking.puntaje + '</div> <td>';
+            var puntaje = '<td><div class="ranking-value">' + ranking.puntaje + '</div> </td>';
 
             var trClass = '';
 

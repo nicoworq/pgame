@@ -967,6 +967,19 @@ img{max-width: 100%}
     float: right;
 }
 
+.position-td {
+    padding-left: 30px !important;
+    padding-right: 0 !important;
+}
+.name-td{
+    padding-left: 0 !important;
+}
+.tiempo-td{
+    padding-left: 0 !important;
+}
+
+.match-td{}
+
 .ranking-table{
     position: relative;
     background: white;
