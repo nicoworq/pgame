@@ -193,10 +193,10 @@ $cuerpo_email = <<<EOD
                                                                                                                             </tr><tr>
                                                                                                                                 <td valign="top" class="tobEditableHtml" style="padding-top: 9px; mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
 
-                                                                                                                                    <p style="margin: 0.3em 0px 0.8em; line-height: 20px; color: #393939; font-size: 15px; font-family: Verdana; font-weight: normal; padding: 0px;">Ya estás jugando por&nbsp;<br>increíbles premios<br>
+                                                                                                                                    <p style="margin: 0.3em 0px 0.8em; line-height: 20px; color: #393939; font-size: 15px; font-family: Verdana; font-weight: normal; padding: 0px;">Ya est&aacute;s jugando por&nbsp;<br>increíbles premios<br>
                                                                                                                                         <br>
 
-                                                                                                                                        <b>No te olvides!&nbsp;</b>Retá a tus amigos <br>a que superen tu puntaje en facebook</p>
+                                                                                                                                        <b>No te olvides!&nbsp;</b>Ret&aacute; a tus amigos <br>a que superen tu puntaje en facebook</p>
                                                                                                                                 </td>
                                                                                                                             </tr>
                                                                                                                             <tr>
@@ -269,7 +269,7 @@ $cuerpo_email = <<<EOD
                                                                                                                                 <td valign="top" style="padding-top: 30px;padding-bottom: 51px; mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
 
                                                                                                                                     <a class="tobEditableHtml" href="http://www.pascalonline.com.ar/" style="background-color: #f8c901;border-radius: 4px;color: #282828;display: inline-block;font-family: Arial;font-size: 16px;font-weight: bold;line-height: 50px;text-align: center;text-decoration: none;width: 162px;-webkit-text-size-adjust: none;mso-hide: all;-ms-text-size-adjust: 100%;">
-                                                                                                                                        Encontrá el tuyo
+                                                                                                                                        Encontr&aacute; el tuyo
                                                                                                                                     </a>
                                                                                                                                 </td>
                                                                                                                             </tr>
