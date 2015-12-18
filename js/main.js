@@ -65,15 +65,15 @@ function pascalGame() {
             $('body').mouseleave(function () {
                 showLeavePopup();
             });
-            
-            
-            $('#leave-popup-close').click(function(){
+
+
+            $('#leave-popup-close, #leave-popup').click(function () {
                 $('#leave-popup').fadeOut();
             });
 
             $('#no-mobile .btn-primary').click(function () {
                 $('#no-mobile').fadeOut();
-            })
+            });
 
             $('#btn-comenzar').click(showInstructionsScreen);
 
