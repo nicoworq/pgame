@@ -64,6 +64,56 @@ body{
 }
 #main-loader.remove{display: none;}
 
+
+/* -----------
+ * LEAVE POPUP
+ * ----------- */
+
+#leave-popup{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.28);
+    z-index: 10000000;
+    text-align: center;
+    display: none;
+}
+#leave-popup-inner{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -287px;
+}
+#leave-popup-content{
+    position: relative;
+    width: 1169px;
+    margin: 0 auto;
+}
+#leave-popup a{}
+#leave-popup img{}
+#leave-popup-close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: white;
+    padding: 10px 19px;
+    border-radius: 62px;
+    font-size: 20px;
+    font-family: Lato;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    line-height: 22px;
+    border: 2px solid white;
+    text-align: center;
+}
+
+#leave-popup-close:hover{
+    border: 2px solid #EDC600;
+}
+
 /* -----------
 * BACKGROUND INTRO
 * ----------- */

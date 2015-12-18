@@ -1,6 +1,4 @@
 
-
-
 /*
  * LOADER
  */
@@ -42,6 +40,7 @@ function pascalGame() {
 
     var idParticipante;
 
+    var leavePopupShowed = false;
 
     //Sounds
 
@@ -60,7 +59,17 @@ function pascalGame() {
         window.addEventListener("hashchange", hashChanged);
 
 
+
         $(document).ready(function () {
+
+            $('body').mouseleave(function () {
+                showLeavePopup();
+            });
+            
+            
+            $('#leave-popup-close').click(function(){
+                $('#leave-popup').fadeOut();
+            });
 
             $('#no-mobile .btn-primary').click(function () {
                 $('#no-mobile').fadeOut();
@@ -191,6 +200,17 @@ function pascalGame() {
         });
     }
 
+
+    function showLeavePopup() {
+
+        if (!leavePopupShowed && window.location.hash === '#ranking') {
+
+            leavePopupShowed = true;
+            $('#leave-popup').fadeIn();
+
+        }
+
+    }
 
     function randomizeCards() {
         var children = $(".card");
@@ -327,11 +347,11 @@ function pascalGame() {
     }
 
     function showScoresScreen() {
-        
-        playingSound.fadeOut(300,function(){
+
+        playingSound.fadeOut(300, function () {
             playingSound.stop();
         });
-        
+
         gameOverSound.play();
 
         backSound.setVolume(10).fadeTo(20, 1500);

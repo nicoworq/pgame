@@ -36,6 +36,23 @@ $pg = new Pascal();
 
     </head>
     <body>
+
+        <div id="leave-popup">
+            <div id="leave-popup-inner">
+                <div id="leave-popup-content">                
+                    <div id="leave-popup-close">
+                        <span>x</span>
+                    </div>
+                    <a href="http://pascalonline.com.ar" target="blank">
+                        <img src="img/leave-popup.jpg" />
+                    </a>
+                </div>
+            </div>
+
+
+
+
+        </div>
         <div id="main-loader">
             <img src="img/loader.png"/>
         </div>
@@ -43,7 +60,7 @@ $pg = new Pascal();
             <div id="no-mobile-text">
                 <h1>Lo Sentimos</h1>
                 <p>El juego no esta preparado para ser disfrutado 100% en el dispositivo que utilizas.<br/>Sin embargo, puedes continuar bajo tu propio riesgo</p>
-                
+
                 <button class="btn-primary">Continuar</button>
             </div>
 
