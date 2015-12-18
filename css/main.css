@@ -1136,6 +1136,8 @@ img{max-width: 100%}
     font-family: Lato;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 0;
+    margin-top: 8px;
 }
 .volver-pascal{
     display: block;
@@ -1146,6 +1148,13 @@ img{max-width: 100%}
 .btn-fb{ background: #4A66A0;border-bottom: 3px solid #364C77;margin-top: 20px;display: inline-block;}
 
 .btn-fb:hover{background: #6084D0;}
+
+
+/* -----------
+ * BASES
+ * ----------- */
+
+#bases{display: block;text-align: center;font-family: Lato;text-decoration: underline;}
 
 
 @media(max-height:768px){
