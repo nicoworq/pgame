@@ -406,14 +406,34 @@ $pg = new Pascal();
 
                         </div>
                         <div id='ranking-share-screen' class="ranking-share" data-ranking-id='<?php echo $tk->generateFormToken('encoding-code') ?>'>
-                            <h3>¡Demostrá que sos el mejor!</h3>
-                            <h4>Compartí el juego con tus amigos en faceboook y retalos a que superen tu puntaje.</h4>
+
+                            <?php
+                            if (isset($_GET['local'])) {
+                                ?>
+                                <h3>¡Gracias por participar!</h3>
 
 
-                            <button class="btn-primary btn-fb" 
-                                    data-href="http://pascalgames.com.ar">
-                                <img src="img/fb.svg"/> <span>Compartir</span>
-                            </button>
+
+                                <a href='http://pascalgames.com.ar' class="btn-primary btn-local">
+                                    <span>Volver a Jugar</span>
+                                </a>
+                                <?php
+                            } else {
+                                ?>
+                                <h3>¡Demostrá que sos el mejor!</h3>
+                                <h4>Compartí el juego con tus amigos en faceboook y retalos a que superen tu puntaje.</h4>
+
+
+                                <button class="btn-primary btn-fb" 
+                                        data-href="http://pascalgames.com.ar">
+                                    <img src="img/fb.svg"/> <span>Compartir</span>
+                                </button>
+
+                                <?php
+                            }
+                            ?>
+
+
 
                             <a href="http://www.pascalonline.com.ar/" class="volver-pascal">Volver a Pascal</a>
 
@@ -442,6 +462,12 @@ $pg = new Pascal();
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
 
+        <script>
+<?php
+echo isset($_GET['local']) ? 'var enPascal = true' : 'var enPascal = false';
+?>
+
+        </script>
 
         <script src="js/plugins.min.js"></script>
         <script src="js/productionJs.js"></script>

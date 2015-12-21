@@ -51,9 +51,9 @@ function pascalGame() {
     var goSound;
     var matchSound;
     var noMatchSound;
-    
+
     var soundGroup;
-    
+
     function initialize() {
 
 
@@ -159,12 +159,12 @@ function pascalGame() {
 
     initializeSound();
 
-    
-    function setVolume(qty){
-        
-        if(qty === 0){
+
+    function setVolume(qty) {
+
+        if (qty === 0) {
             soundGroup.mute();
-        }else{
+        } else {
             soundGroup.unmute();
         }
     }
@@ -208,7 +208,7 @@ function pascalGame() {
         });
 
 
-        soundGroup = new buzz.group(backSound, countSound, gameOverSound,playingSound,gameOverSound,goSound,matchSound,noMatchSound);
+        soundGroup = new buzz.group(backSound, countSound, gameOverSound, playingSound, gameOverSound, goSound, matchSound, noMatchSound);
 
 
         backSound.setVolume(10).fadeTo(20, 1500);
@@ -562,7 +562,13 @@ function pascalGame() {
             $('.ajaxing').fadeOut();
             if (json.enviado) {
                 idParticipante = json.idParticipante;
-                showExtraScoreScreen();
+
+                if (enPascal) {
+                    showRankingScreen();
+                } else {
+                    showExtraScoreScreen();
+                }
+
 
             } else {
 

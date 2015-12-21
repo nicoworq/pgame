@@ -1020,6 +1020,11 @@ img{max-width: 100%}
 }
 
 
+#ranking-share-screen .btn-primary.btn-local{
+    display: inline-block;
+    margin: 20px 0;
+}
+
 #papa-noel-ranking{
     position: absolute;
     width: 180px;
