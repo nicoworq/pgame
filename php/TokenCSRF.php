@@ -38,6 +38,13 @@ class TokenCSRF {
         return $token;
     }
 
+    public function getToken($form) {
+        if (!isset($_SESSION['csrf'][$form . '_token'])) {
+            return false;
+        }
+        return $_SESSION['csrf'][$form . '_token'];
+    }
+
     public function verifyFormToken($form, $token, $delta_time = 0) {
 
         // comprueba si hay un token registrado en sesión para el formulario

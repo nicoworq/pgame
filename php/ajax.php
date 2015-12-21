@@ -1,47 +1,75 @@
 <?php
 
+
+if(!isset( $_POST['data'])){
+    die();
+}
+
 include_once './TokenCSRF.php';
 include_once './Pascal.php';
 
 
-header('Content-type: application/json');
-//Descarto por ser un bot!
-if (isset($_POST['sex']) && $_POST['sex'] !== '') {
-    echo json_encode(array('enviado' => TRUE, 'trucho' => TRUE));
-    die();
-}
-
-//Descarto por ser un bot!
-if (!isset($_POST['email']) && $_POST['email'] === '' || !isset($_POST['name']) && $_POST['name'] === '') {
-    echo json_encode(array('enviado' => TRUE, 'trucho' => TRUE));
-    die();
-}
-
-
 $tk = new TokenCSRF();
 
+header('Content-type: application/json');
 
-$token = $_POST['code'];
 
-if (!$tk->verifyFormToken('send-score', $token)) {
+$encodingCode = $tk->getToken('encoding-code');
+
+if (!$encodingCode) {
+    echo json_encode(array('enviado' => TRUE, 'CRFF' => TRUE));
+}
+
+
+//btoa(btoa(code + btoa(data)))
+
+$data = $_POST['data'];
+
+$data1 = base64_decode($data);
+
+$data2 = base64_decode( $data1);
+
+
+
+$dataString = base64_decode(str_replace($encodingCode, '', $data2));
+
+
+parse_str($dataString);
+
+
+
+//Descarto por ser un bot!
+if (isset($sex) && $sex !== '') {
+    echo json_encode(array('enviado' => TRUE, 'trucho' => TRUE));
+    die();
+}
+
+//Descarto por ser un bot!
+if (!isset($email) && $email === '' || !isset($name) && $name  === '') {
+    echo json_encode(array('enviado' => TRUE, 'trucho' => TRUE));
+    die();
+}
+
+
+if (!$tk->verifyFormToken('send-score', $code)) {
     echo json_encode(array('enviado' => TRUE, 'CRFF' => TRUE));
     die();
 }
 
 
-$nombre = $_POST['name'];
-$email = $_POST['email'];
-$dni = $_POST['dni'];
-$telefono = $_POST['phone'];
 
-$puntaje = intval($_POST['score']);
-$tiempo = intval($_POST['time']);
-$coincidencias = intval($_POST['matches']);
-$intentos = intval($_POST['tries']);
+
+
+
+
+$puntaje = intval($score);
+$tiempo = intval($time);
+$coincidencias = intval($matches);
+$intentos = intval($tries);
 
 $pascal = new Pascal();
 
-$insertedID = $pascal->insertParticipant($nombre, $email, $dni, $puntaje, $telefono, $tiempo, $coincidencias, $intentos);
+$insertedID = $pascal->insertParticipant($name, $email, $dni, $puntaje, $phone, $tiempo, $coincidencias, $intentos);
 
 if ($insertedID[0]) {
 

@@ -4,6 +4,47 @@ body{
     background: #FFDB00;
 }
 
+.volume-bt{
+    background: #edc600;
+    box-shadow: 1px 1px 5px #d7ba0e;
+    position: absolute;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 2000;
+    -webkit-transition: all 200ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition:         all 200ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.volume-bt:hover{background: #FFD70B;}
+
+.volume-bt button{   
+    width: 40px;
+    height: 31px;
+    background: url(../img/volume_bt.png);
+    background-repeat: no-repeat;
+    border: none;
+    background-position: 50% 0;
+    outline: none;
+}
+.volume-bt button.active{
+    background-position: 50% -30px;
+}
+
+#intro .volume-bt{
+    top: 0;
+    right: 0;
+}
+
+#memo-container .volume-bt{
+    right: 0;
+    top: 0;
+}
+
+#ranking-container .volume-bt{
+    right: -85px;
+    top: 15px;
+    }
+
 #no-mobile{display: none;position: absolute;text-align: center;left: 0;z-index: 1000000;background: rgba(0, 0, 0, 0.6);top: 0;bottom: 0;color: white;right: 0;}
 #no-mobile h1{font-family: 'Passion One'}
 #no-mobile p{font-family: 'Lato'}

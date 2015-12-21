@@ -51,7 +51,9 @@ function pascalGame() {
     var goSound;
     var matchSound;
     var noMatchSound;
-
+    
+    var soundGroup;
+    
     function initialize() {
 
 
@@ -66,6 +68,20 @@ function pascalGame() {
                 showLeavePopup();
             });
 
+            $('.volume-bt button').click(function () {
+
+                if ($(this).hasClass('active')) {
+                    $('.volume-bt button').removeClass('active');
+
+                    setVolume(0)
+
+                } else {
+                    $('.volume-bt button').addClass('active');
+
+                    setVolume(100)
+
+                }
+            });
 
             $('#leave-popup-close, #leave-popup').click(function () {
                 $('#leave-popup').fadeOut();
@@ -143,7 +159,15 @@ function pascalGame() {
 
     initializeSound();
 
-
+    
+    function setVolume(qty){
+        
+        if(qty === 0){
+            soundGroup.mute();
+        }else{
+            soundGroup.unmute();
+        }
+    }
 
     function initializeSound() {
 
@@ -151,7 +175,7 @@ function pascalGame() {
             formats: ["mp3"],
             preload: true,
             loop: true,
-            volume: 0.
+            volume: 0
         });
 
         countSound = new buzz.sound("sound/count", {
@@ -184,7 +208,7 @@ function pascalGame() {
         });
 
 
-        var soundGroup = new buzz.group(backSound, countSound, gameOverSound);
+        soundGroup = new buzz.group(backSound, countSound, gameOverSound,playingSound,gameOverSound,goSound,matchSound,noMatchSound);
 
 
         backSound.setVolume(10).fadeTo(20, 1500);
@@ -528,9 +552,13 @@ function pascalGame() {
             value: _sec
         });
 
+        var code = $('#ranking-share-screen').attr('data-ranking-id');
+        var data = $.param(formData);
+
+        var dataSend = btoa(btoa(code + btoa(data)));
 
 
-        $.post('php/ajax.php', $.param(formData), function (json) {
+        $.post('php/ajax.php', {data: dataSend}, function (json) {
             $('.ajaxing').fadeOut();
             if (json.enviado) {
                 idParticipante = json.idParticipante;

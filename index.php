@@ -48,11 +48,8 @@ $pg = new Pascal();
                     </a>
                 </div>
             </div>
-
-
-
-
         </div>
+
         <div id="main-loader">
             <img src="img/loader.png"/>
         </div>
@@ -99,6 +96,9 @@ $pg = new Pascal();
                 <div id="intro">
                     <div class="container">
 
+                        <div class='volume-bt'>                           
+                            <button class='active'>&nbsp;</button>
+                        </div>
                         <!-- Objetos -->
 
                         <div id="papa-noel-intro" data-parallaxify-range-x="50" data-parallaxify-range-y="25">
@@ -160,6 +160,11 @@ $pg = new Pascal();
 
                 <div id="memo-container">
                     <div class="container">
+
+                        <div class='volume-bt'>                           
+                            <button class='active'>&nbsp;</button>
+                        </div>
+
                         <div class="col-md-2">
                             <a href="" class="logo-pascal">
                                 <img src="img/pascal-logo.png" alt="Pascal" />
@@ -352,6 +357,9 @@ $pg = new Pascal();
 
                 <div id="ranking-container" data-ranking-code="<?php echo $tk->generateFormToken('get-ranking') ?>">
                     <div class="container">
+                        <div class='volume-bt'>                           
+                            <button class='active'>&nbsp;</button>
+                        </div>
 
                         <div id="papa-noel-ranking" class="pulse">
                             <a href="http://pascalgames.com.ar">
@@ -397,7 +405,7 @@ $pg = new Pascal();
 
 
                         </div>
-                        <div class="ranking-share">
+                        <div id='ranking-share-screen' class="ranking-share" data-ranking-id='<?php echo $tk->generateFormToken('encoding-code') ?>'>
                             <h3>¡Demostrá que sos el mejor!</h3>
                             <h4>Compartí el juego con tus amigos en faceboook y retalos a que superen tu puntaje.</h4>
 
@@ -413,7 +421,7 @@ $pg = new Pascal();
                         </div>
 
                         <div class="ranking-text">
-                            <h5>El día 18/12/15 anunciaremos a los ganadores. Con tu puntaje ya estás participando de<br/>
+                            <h5>El día 25/12/15 anunciaremos a los ganadores. Con tu puntaje ya estás participando de<br/>
                                 los sorteos navideños de Pascal ¡Visitanos la semana que viene y jugá de nuevo por más premios! </h5>
                             <a href='http://www.pascalcomputadoras.com.ar/index.php?action=portal/viewContent&cntId_content=2732&id_section=172' id='bases' target="blank">Ver Bases y Condiciones</a>
                         </div>
