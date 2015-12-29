@@ -441,7 +441,7 @@ $pg = new Pascal();
                         </div>
 
                         <div class="ranking-text">
-                            <h5>El día 25/12/15 anunciaremos a los ganadores. Con tu puntaje ya estás participando de<br/>
+                            <h5>El día 31/12/15 anunciaremos a los ganadores. Con tu puntaje ya estás participando de<br/>
                                 los sorteos navideños de Pascal ¡Visitanos la semana que viene y jugá de nuevo por más premios! </h5>
                             <a href='http://www.pascalcomputadoras.com.ar/index.php?action=portal/viewContent&cntId_content=2732&id_section=172' id='bases' target="blank">Ver Bases y Condiciones</a>
                         </div>
