@@ -3,7 +3,6 @@ include_once './php/TokenCSRF.php';
 include_once './php/Pascal.php';
 
 $tk = new TokenCSRF();
-
 $pg = new Pascal();
 ?>
 <!doctype html>
@@ -14,7 +13,7 @@ $pg = new Pascal();
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Navidad en Pascal</title>
+        <title>Navidad en Pascal 2019</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
